@@ -80,15 +80,15 @@
 % ===========================
 % These must be set before loading pdfx or beginning document
 \author{Luong Dang Hai}
-\title{Tampere University of Technology thesis template}
-\datethesisapproved{2017}{10}{30} % year, month, day; no leading zeroes; submitted for bachelor's theses and thesisapproved for master’s
+\title{The Ethereum blockchain: Use cases for social finance applications}
+\datethesisapproved{2018}{10}{30} % year, month, day; no leading zeroes; submitted for bachelor's theses and thesisapproved for master’s
 \thesistype{Bachelor’s thesis} % Do not use ASCII apostrophe ' as it will not be substituted with the correct one (’) in the PDF metadata. Note that there are both short version (this) and a long one - "Master’s" vs. "Master of Science"
 \major{Information and Communication Technology}
-\programme{Master’s Degree Programme in Science and Engineering} % Note apostrophes on all fields for PDF metadata
-\keywords{thesis, template, thesis structure, thesis layout}
+\programme{Bachelor’s Degree Programme in Science and Engineering} % Note apostrophes on all fields for PDF metadata
+\keywords{blockchain, smart contract, solidity, ethereum, finance}
 
-\examiner{Professor Vilma Välkky\and Professor Matti Meikäläinen} %\and for plural
-\datetopicapproved{2017}{9}{11}% only for master’s theses
+\examiner{Professor Marko Helenius} %\and for plural
+\datetopicapproved{2018}{9}{11}% only for master’s theses
 
 
 % Packages that need to be loaded late
@@ -106,33 +106,27 @@
 
 %First, the abstract in the language of the thesis (no language selection). Note that most fields are already defined
 
-\thesisdescription{Master of Science Thesis}
+\thesisdescription{Bachelor of Science and Engineering Thesis}
 \begin{abstract}
-The abstract is a self-contained, concise description of the thesis: what was the problem, what was done, what was the result.
-Do not include charts or tables in the abstract.
+Transaction-based activities existed since humanity was known, which can range from trading goods to information. Together with the flow of time, the requirements and complexity of transactions demand a role called middleman, acting as an escrow to ensure the transaction was made according to all parties' wish, which means trust becomes an important part of all transactions. However, the reliance of trust in this modern technological age has shown signs of limitations and mistrust was found in history, since the middleman cannot always be fully trusted. Hence, a new model of transaction needs to be invented to eliminate the need of middleman and trust in order to provide more robust transactions which lead to better efficiency in business and relationship.
 
-First include the abstract written in the main language of the thesis and then the translation.
-A bachelor's thesis in Finnish must also have a name in English for archival.
+Cryptography was one of computer science's field which studies the process of making sure the information is secure, unaltered and non-reputable until it reaches the receiver. This technology has shown its usefulness and importance throughout history, which makes cryptography to be a viable solution for creating a new model of transaction, of which is called "Blockchain" nowadays.
+
+This bachelor's thesis studies the Ethereum blockchain, which is one of the most developed and widely-accepted blockchain implementation, to find its benefits in social financial applications, specifically providing transparency and availability of data to all parties. The research is done by implementing a smart contract on the Ethereum blockchain which will allow reading and writing data to Ethereum blockchain. With this smart contract, transactional data will be transparent, unalterable and guaranteed available for everyone. 
 \end{abstract}
 
 
 \chapter*{Preface}
 
-This document template is designed in accordance with the 2017 version of the TUT thesis writing guide, based on the LaTeX \emph{report} document class and earlier TUT LaTeX templates.
-
-The preface contains general information about the thesis process.
-Acknowledgements to those who contributed to the thesis are generally presented in the preface.
-It is not appropriate to criticize anyone in the preface, even though the preface will not affect your grade.
-The preface must fit on one page.
-Add the date, after which you have not made any revisions to the text, at the end of the preface.
+I would like to thank my employer Bankify Oy for suggesting this bachelor thesis and making this thesis possible. I want to also thank to my supervisor, Marko Helenius, for the aid I was given to improve this thesis.
 
 \vspace{2\baselineskip}
 
-In Tampere, Finland, on 31 May 2017
+In Tampere, Finland, on 15 Sep 2018
 
 \vspace{2\baselineskip}
 
-John Doe
+Luong Dang Hai
 
 
 
@@ -149,9 +143,8 @@ John Doe
 
 % Suppressed left colsep; 20% - 1 x colsep; right colpsep; left colpadding; 80% - 1 x colpadding; suppressed right colpadding
 \begin{tabular}[h]{@{} p{0.2\textwidth-\tabcolsep} p{0.8\textwidth-\tabcolsep} @{}}
-CC license & Creative Commons license \\
-LaTeX & typesetting system for scientific writing \\
-SI system & Système international d'unités, International System of Units \\
+TX & Transaction \\
+ETH & Ether, the currency of the Etherum blockchain \\
 TUT & Tampere University of Technology \\
 URL & Uniform Resource Locator 
 \end{tabular}
@@ -168,347 +161,376 @@ Parentheses are used with abbreviations then.
 
 % It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
 
-\chapter{Introduction}
+\chapter{Introduction (Work in Progress)}
 \label{ch:Introduction}
 
-This template is associated with the Tampere University of Technology Thesis Writing Guide \citep{Tut2017}.
-A thesis or report typically includes the following chapters:
+Making transactions cannot be avoided in the technology and internet-based era. Internet users need to get the necessary work information, check bank account balances, purchasing items online, participate on voting, signing electrical contracts or papers,... All of the mentioned activities require a middleman individual or organization to help facilitating, validating and confirming. This current model of relying on the trust with middleman causes difficult issues (TO DO: add some facts about scams, unavailability of the current middle man bases transaction). Thus, a non-escrow transaction model needs to be derived to solve this issue. Nick Szabo proposed "smart contract" as an improved solution to eliminate the use of middleman (TO DO: insert reference to Nick Szabo's paper: \href{http://www.alamut.com/subj/economics/nick_szabo/smartContracts.html}{Smart Contracts: Building Blocks for Digital Markets}) (TO DO: read the above paper and then create a link to Bitcoin's blockchain invention by Satoshi Nakamoto)
 
-\begin{tabular}[h]{l}
-Title page\\
-Abstract\\
+Then tell a story an transition from Bitcoin to Ethereum and then link Ethereum's white paper here. Then tell the smart contract concept in Ethereum
 
-Preface\\
-Contents\\
-List of abbreviations and symbols\\
-1. Introduction\\
-2. Theoretical background\\
-3. Research methodology and materials\\
-4. Results and analysis (possibly split into separate chapters) \\
-5. Conclusions\\
-References\\
-Appendices (if applicable)
-\end{tabular}
+\chapter{Background}
+\label{ch:background}
 
-Chapter \ref{ch:writingstyle} of this template covers the basic rules of writing style in regard to figures, tables and mathematical notations.
-Chapters \ref{ch:referencingstyles} and \ref{ch:conclusion} present referencing styles and a short conclusion.
-A documentation of the document class options is given as an appendix.
+This chapter explains the key concepts of a blockchain, a new blockchain feature called smart contract and introduces a platform that provide the capability to develop one which is the Ethereum blockchain. Understanding the key ideas is the prerequisite to understand: i) the revolutional idea of blockchain; ii) the solutions proposed in later chapters.
 
+\section{Blockchain Definitions}
 
+A blockchain is a structure to store data in a continuously growing list of records, which are also referred to as "blocks" \citep{RefWorks:doc:WhatIsBlockChain}. These "blocks" are linked and secured by cryptography.
 
-\chapter{Writing style}
-\label{ch:writingstyle}
+A blockchain can be compared to a book which can add pages to itself infinitely. Each block is similar to a page, which contains a page number to identify itself. All pages are linked to each other by the book spine, and each page number implies that the next page is certainly the current page number plus one. With this setup, the reader can easily jump to the page as needed, and navigate between pages. A blockchain is constructed in a similar way as that book while the page numbers are replaced by unique identifiers such as a hash value, the book spine is removed and instead each page contains the identifier for the previous page \citep{RefWorks:doc:BlockchainBasicsBook}.
 
-Effective written communication requires both sound content and clear style.
-Keep the layout of your thesis neat and presentable and pay attention to your writing style in order to portray a professional image. 
+\subsection{Content creation on the blockchain}
+\label{contentCreationOnBlockchain}
 
-\section{Text}
+Content addition to the blockchain is similar to new content addition to a book. For example, anyone can get a digital version of a thesis, write edit and annotate. There has to be a solution to validate which printed out versions of that thesis is the original one. One such solution is comparing all copies of the same book. If the same page is showing different content between versions, the majority which hold the same content will be correct. To the blockchain context, everyone will have the same copy of data and have the right to add new content to it. Each time content is added there will be a broadcast event to everyone, each of whom can verify the data and the majority will decide the next set of data will be added to a new block \citep{RefWorks:doc:BitcoinWhitepaper}.
 
-A thesis is written with a single-column layout on one- or two-sided A4 sheets (210 mm x 297 mm).
-The font type of the body text is usually Times New Roman (Times on this LaTeX template) and the font size is 12 pt.
-The line spacing is 16.56 points (Microsoft Word multiplier 1.2), and the text is fully justified and hyphenated.
-Arial 18 pt is the font/size of headings (the corresponding Helvetica on this template), and there is a 42 pt space above and below.
-The font size of subheadings is 14.
-There is an 18 pt space above subheadings and 12 pt space below them.
+Blockchains improve the content creation by allowing more complex "content" which can be added into itself. These "contents" can be transactions data, messages, texts, conditions and even computer programs, or scripts which run when the conditions are met.
 
-The basic instructions to writing style are:
-\begin{itemize} % never start a paragraph with a list (i. e. no empty line before this)
-  \item Always think of your reader when you are writing and provide cues. Move from general cases to specific cases, details and exceptions.
-  \item Highlight your key points, for example, by discussing them in separate chapters or presenting them in a table or figure. Use \emph{italics} or \emph{boldface} (in this order of preference) in the text for emphasis, but don’t overdo it.
-  \item Avoid long sentences and complex sentence structures. A full stop is the best way to end a sentence.
-  \item Use active verbs to make a dynamic impression. You should avoid the first person pronoun ``I'', except in your preface.
-  \item Do not make overly complicated statements or use jargon. Write what you mean directly. Use established terminology and neutral language.
-  \item The minimum length of chapters and subchapters is two paragraphs, and you need to consider the balance of chapters.  Paragraphs must always consist of more than one sentence.
-  \item Do not use more than three levels of headings, such as 4.4.2.
-  \item Do not overuse abbreviations. Use lower case and upper case letters consistently in abbreviations and acronyms.
+\subsection{Blockchain's capabilities}
+\label{blockchainCapabilities}
+
+From the definition and the mechanism of content creation mentioned above, it is derived that a blockchain is able to:
+
+\begin{itemize}
+    \item Transfer values, such as electronic cash \citep{RefWorks:doc:BitcoinWhitepaper}.
+    \item Exchange message to each others as a form of signed message (to which the receiver is able to verify the sender) \citep{RefWorks:doc:EthereumWhitepaper}
+    \item Store records of data such as company shares, bonds, ... \citep{RefWorks:doc:SecuritiesOnBlockchain}
+    \item Run optional scripts each time a condition is met \citep[s.~20]{RefWorks:doc:MasteringBlockchain}
 \end{itemize}
 
-\section{Figures}
+For the purpose of this thesis, finding use cases for a social finance application, only the data storing and script executing will be discussed. This is due to the nature of a computer application: i) Running business logic, and ii) Storing users' data.
 
-You must refer to all the figures in the body text.
-The reference should preferably appear on the same page as the actual figure or before it.
-Figures and tables must be consecutively numbered and are primarily placed at the top of the page.
-The automation of the LaTeX publishing system will generally place figures well.
-Never start a chapter with a figure, table or list.
-The caption is placed under the figure and always on the same page as the figure.
+\subsection{Transparency and democracy}
 
-All figures must be explained in the body text, so that readers know what they are supposed to notice.
-Figures generated by analysis software usually need further editing, such as figure \ref{fig:figure-quality}.
-Any text included in the figures must be readable.
-The recommended font size is the same as that of the body text but no smaller than 10 pt.
+These capabilities mentioned in section \ref{blockchainCapabilities} can be found in current systems. For example, the records of company shares are saved in that company, legal authority. Those middlemans make sure that all shareholders's stake are recorded correctly. Each time one needs to transfer the shares, all those middlemans need to be notified and then they will then verify and execute the transfer. Those outlined steps might be broken if a chain is corrupted or a human error occured.
+
+A blockchain prevents these issues with the reliability of data existence, automatic agreement bindings and no authority in control. All participants in a blockchain will keep a record of that company's shares and share transfer will be handled by a smart contract automatically \citep{RefWorks:doc:BlockchainProtocolInClinicalTrials}. Anyone in the entire world can safely make an agreement to each other without actually meet or know before hand, since the rules and execution of a smart contract are automated.  Each time new data is requested to record, the whole network will verify it with cryptography. Later, the data will be immutable, extremely hard to temper with \citep{RefWorks:doc:BitcoinWhitepaper}\citep{RefWorks:doc:EthereumWhitepaper}. Furthermore, no one owns the system. Instead, it is maintained, verified and controlled by everyone who joins the network.
+
+\section{Smart contracts}
+
+Smart contracts are new feature of a blockchain \citep{RefWorks:doc:BlockchainInSustainableEnergySystem}, is a "computerized transaction protocol that executes the terms of a
+contract" \citep{SmartContracts}. As mentioned in section \ref{contentCreationOnBlockchain}, any request to run the smart contract codes will be sent with a set of conditions. When the predefined conditions are met, the codes from the smart contract will be executed \citep{RefWorks:doc:MasteringBlockchain}.
+
+In a traditional contract, each party will hold a copy. The judges and the legal system will enforce and make sure that the contract terms will be respected and followed. The judges and legal system, in contrast, does not exist in smart contracts. Since they are computer programs, all the rules execution are automated and enforced by computer logic.
+
+\subsection{Smart contract innovation}
+
+Since smart contracts are essentially computer programs \citep{Ethdocorg:EVM}, a whole new possibility has been able to be realized since more complex rules and logic can be applied thanks to smart contracts. Running smart contracts on blockchain can also be understood as running computer programs in a "world computer", since the contract will be executed anywhere in the world, which ensures the availability of the contract (zero downtime). Furthermore, since the contract execution will be made by every node joining the network, "an extreme level of fault tolerant" can be achieved \citep{Ethdocorg:EVM}.
+
+With a smart contract, two random people on the planet, for example Anna and Bob can agree to certain terms and conditions without actually meet and know each other before hand. They do not need to spend time and money from different third party entities to formalize and legalize the contract. Instead, what is required from them is only running the smart contract, and all the rules will be automated without anyone's worry.
+
+\subsection{Supported Platform and Availability}
+
+Smart contract is a new an attractive feature that many modern blockchain has implemented this. Here are some popular example according to the current time of writing this thesis:
+
+\begin{itemize}
+    \item Ethereum \citep{Ethereum}
+    \item Eos.io \citep{EOS}
+    \item NEO Project \citep{NEO}
+\end{itemize}
+
+Each of the above mentioned platforms have its own strengths and weaknesses. However, in this thesis, a smart contract will be developed on the Ethereum blockchain due to its popularity and huge base of community and developer support.
+
+\section{The Ethereum blockchain}
+
+After the successful release of the first blockchain platform called \textit{bitcoin}, the whole world has been introduced and gradually accept the advantages of blockchain technology. However, the problem that \textit{bitcoin} solved was only sending electronic money between peers, and the community demands a next generation of blockchain that can achieve more, for example, running computer programs with consensus-backed security. That was the reason for the born of Ethereum blockchain to become a "programmable blockchain" in the year 2014 \citep{Ethdocorg:WhatIsEthereum}. Ethereum took a different approach to blockchain by allowing everyone to add their own operations and complexity rather than just a money transaction \citep{RefWorks:doc:MasteringBlockchain}. Therefore, Ethereum is suitable to realizing complex business logic \citep{RefWorks:doc:EthereumStateOfKnowledge}.
+
+The design of Etherum is similar to a state machine \citep{RefWorks:doc:EthereumStateOfKnowledge}\citep{RefWorks:doc:MasteringBlockchain}\citep{RefWorks:doc:EthereumASecureDecentralizedTransaction}. Every time one wants to change the data on Ethereum, a transaction is created. The transactions will be collected and processed incrementally, each of which will describe how the data will transform from the current state to the next one, as in Figure \ref{fig:ethereum_transaction}
 
 \begin{figure}
-    %\includegraphics[width=0.45\textwidth]{kuvaajaA}\hfill\includegraphics[width=0.45\textwidth]{kuvaajaB}
-    \vspace*{5cm}
-    \framebox[0.45\textwidth]{Image omitted\par}\hfill\framebox[0.45\textwidth]{Image omitted}
-    \vspace*{5cm}
-    \caption{Diagrams should be edited before publication. The diagram on the right is an edited version of the one on the left.}
-    \label{fig:figure-quality}
+    \centering
+    \includegraphics[width=\linewidth]{ethereum_transaction.jpg}
+    \caption{Ethereum Transaction \citep{RefWorks:doc:MasteringBlockchain}}
+    \label{fig:ethereum_transaction}
 \end{figure}
 
-\section{Tables}
+There are currently two Ethereum network running: Ethereum Classic (ETC) \citep{EthereumClassic} and Ethereum (ETH) \citep{Ethereum}. In this thesis, the Ethereum ETH will be used to discuss and implement the smart contract due to the speculation that the later Ethereum is more popular, advanced and actively maintained. The currency from Ethereum will be refered as "Ether" after this.
 
-Like figures, tables are consecutively numbered and captioned, as in Table \ref{tab:thinfilm-evaporationconditions}.
-The caption is placed on the same page and above the table.
-Variables, abbreviations and symbols that appear in the table are defined in the body text, if necessary.
-You must refer to all the tables in the body text, preferably before the table.
-The principal conclusions from the table and interpretation instructions are given in the text.
+\subsection{Smart contract execution on Ethereum}
 
-\begin{table}[ht]
-\caption{Example of evaporation conditions in a thin film structure.}
-\label{tab:thinfilm-evaporationconditions}
-\footnotesize
-\begin{tabularx}{\textwidth}{l | >{\raggedleft}X >{\raggedleft}X >{\raggedleft}X >{\raggedleft}p{6.5em} >{\raggedleft}X >{\raggedleft\arraybackslash}X}
-  \hline
-  \textbf{Substance} & \textbf{Thickness (nm)} & \textbf{Correction co\-efficient} & \textbf{Pressure (mbar)} & \textbf{Temperature (\textdegree C)} & \textbf{Current (mA)} & \textbf{Speed (nm/s)} \\
-  \hline \hline
-  % E.g. the mhchem package could be nice for typesetting chemical notation
-  SiO$_\textrm{2}$ & 181,0 & 1,10 & 3,0 $\cdot$ 10\textsuperscript{-5} & 90,6 & 20--23 & 0,2 \\
-  TiO$_\textrm{2}$ & 122,1 & 1,55 & 15,0 $\cdot$ 10\textsuperscript{-5} & 91,1 & 93--100 & 0,1 \\
-  \hline
-\end{tabularx}
-\end{table}
+In Ethereum, each smart contract has its own address after being released to the network. To run one, an user with another Ethereum address will need to initiate a transaction to the contract, which optionally contains the amount of Ether to transfer, the message to invoke some function on the smart contract, and amount of fee (GAS) to paid for the miners. The transaction will be verified by the network which consumes GAS gradually and if the transaction is invalid, the remaining fee will be refunded to the sender. Otherwise, the amount of Ether specified will be transfer and the code invocation will be activated on the transaction, which will run a specified function on the smart contract.
 
-Mark the titles of the columns and units clearly.
-You can use boldface to highlight the titles and use a double horizontal line to separate them from the rest of the table. The order of the columns and rows must be carefully considered.
-Do not surround all the cells with a border, as it may make your table harder to read.
-Put a line on top and bottom of the table.
-You can add a horizontal line between every 4--5 rows, if the data is not grouped into categories. The numbers in each column are right aligned (optimally lined up at the decimal point) for easy comparison.
-You should preferably use SI units; established prefixes or powers of ten such that they can be placed in the title of the column. More information on using tables can be found in \citep{Salminen2012}.
+\chapter{Smart contract development}
+\label{ch:smartcontractdev}
 
-\section{Mathematical notations}
+Smart contracts are simply programs which run on top of a blockchain network. Hence, they can be developed similarly as normal computer programs, by using programming languages to compile the logic of the software, which then after that being compiled to machine instruction in order to execute. In the Ethereum blockchain, Solidity is introduced to be one of the programming languages which have the support to compile smart contract code \citep{SolidityDocumentation}. 
 
-For the sake of clarity, write numbers using numerals rather than spelling them out, for example ``6 stages'' is more clear than ``six stages''.
-For easier readability, you should also use thousand separators.
-Never omit the leading zero in decimals.
-A comma is used as a decimal separator in the Finnish language and a period in the English language.
+Solidity is a modern language inspired by many predecessors such as C++, Python and JavaScript \citep{SolidityDocumentation}. It is built with the support for Ethereum Virtual Machine (EVM), which is the platform to execute smart contracts, hence becomes a contract-oriented programming language \citep{SolidityDocumentation}. Together with any other modern counterparts, Solidity features inheritance, statically typed and libraries to ease the development process. To understand later code examples shown in later chapters, the language's features which are contracts, function modifiers, addresses will be described in details
 
-Like numbers, it is advisable to abbreviate units of measurement.
-There is a space between the number and the unit, but you should keep them on the same line \footnote{In LaTeX, you can do this by replacing a space with the character ``\textasciitilde''.}.
-It is better to compile a table or graph than include a great deal of numerical values in the body text.
-Measures can often be qualified, and correspondingly all qualitative attributes (large, small, expensive, fast) should be accompanied by a numeral value to describe the magnitude.
+\section{Contracts}
 
+Contracts can be known as the soul of Solidity, and are similar to classes in other object-oriented programming languages, with the appearance of state variables equivalent to class properties, functions to class methods. For example, Program \ref{lst:simpleContract} shows a basic contract.
 
+\begin{lstlisting}[float,caption={A simple contract in Solidity.},label={lst:simpleContract},language=Solidity]
+pragma solidity ^0.4.0;
 
-You should preferably use generally known and well defined concepts and standard conventions and symbols for representing them.
-Avoid using too many concepts and notations that you have invented yourself.
-New concepts should be defined when they appear in the text for the first time.
-Upper case and lower case letters mean different things in symbols and units of measurement.
-Do not use the same symbol to mean different things.
-Units of measurement must be clearly marked.
-
-You can find mathematical symbols and Greek letters in the LaTeX macros and modes, such as
-\emph{\$\textbackslash Theta(n\textasciicircum2)\$}
-or
-\emph{\textbackslash begin\textbraceleft equation\textbraceright\ \textbackslash sin(\textbackslash frac\textbraceleft \textbackslash pi\textbraceright\{2\}) = 1 \textbackslash end\{equation\}}
-.
-Simple formulas may be displayed within the body of the text without numbering.
-As an example of the other way, Newton's Second Law can be presented in the following way:
-\begin{equation} % never start a paragraph with an equation (i.e. no empty line before this)
-\label{eq:Newton2} ma = F,
-\end{equation} % on the other hand, a paragraph could end with an equation, although this one doesn't
-where $m$ denotes the mass of an object, $a$ means acceleration, and $F$ means force.
-Please note that all the variables must be defined at the point of their first appearance in your thesis.
-
-% instead of \eqref{} you may also use (\ref{}) if you like - the former is a convenience for adding the parentheses
-
-Mathematical formulas are numbered, if they are written on separate lines and referred to in the main body of the text, see equation \eqref{eq:Newton2} for an example.
-The number is usually put in parenthesis and right aligned, as in this guide.
-In the English-speaking world, formulas and equations need to be contained in complete sentences with proper punctuations, as in equation \eqref{eq:Newton2}.
-If you are writing your thesis in Finnish, it is acceptable to leave out the period or comma following equations.
-Occasionally mathematical notations are preceded by an identifier, such as Definition 1 or Theorem 1 \citep{Ruohonen2009}.
-Similar to figures and tables, mathematical formulas may be numbered sequentially throughout the whole thesis or sequentially per chapter, either as (1), (2)… or (1.1), (1.2), \ldots, (2.1) (see Appendix \ref{ch:classdocumentation}).
-
-Do not start a sentence with a mathematical symbol.
-Variables, such as $x$ and $y$, are generally presented in italics.
-LaTex uses italics for variables automatically in the math mode to make them stand out \citep{Oetiker2011}.
-Elementary functions, special functions and operators, on the other hand, are presented in regular font: $\sin (2x+y)$, $\operatorname{grad} T$, $\operatorname{div} B$, $\frac{\lim (x^2 - 1)}{x + 1}$.
-
-
-\section{Programs and algorithms}
-
-In a thesis, codes and algorithms are written using monospaced font, such as \texttt{var}.
-The \emph{Courier} font is recommended in LaTeX instead of the default monospaced one.
-\footnote{There are different conventions for source code, shell scripts and algorithms.
-  For the last-mentioned, for instance, appropriately aligned text with a variable-width font may look good.
-  The versatile options of the \emph{listings} package are worth explorng.}
-
-If the length of the code or algorithm is less than 10 lines and you do not refer to it later on in the text, you can present it similarly to formulas.
-If the code is longer but shorter than a page, you present like a figure (like Program \ref{lst:sort}) titled ``Program'' or ``Algorithm''.
-Here code is kept from breaking to multiple pages by the \emph{float} option of the \emph{listings} package.
-
-You should add some comments to the code and indent it consistently.
-The actions performed by the code must be outlined in broad terms in the body text.
-Line numbers make it much easier to refer to the code in the text.
-For example, the listings package for LaTex \citep{Heinz2006, Oetiker2011} is a tool for typesetting source code and pseudocode and highlighting reserved words.
-
-% You could also load the code from an external file
-\iftrue % this is used as a "comment block"
-\begin{lstlisting}[float,caption={Example of presenting program code as a figure in a thesis.},label={lst:sort},language=C]
-void sort( charPair arr[], int size )
-{
-  // Sort a table so that each round looks up the smallest remaining
-  // letter and moves it to correct location.
-  for( int i = 0; i < size; ++i )
-  {
-    // Find the smallest, i.e. closest to letter 'a'
-    int idxSmallest = i;
-    for( int j = i; j < size; ++j )
-    {
-      if( arr[ j ].replacable
-          < arr[ idxSmallest ].replacable )
-      {
-        idxSmallest = j;
-      }
+contract SimpleStorage {
+    uint storedData; // State variable
+    
+    function getData() public returns uint {
+        return storedData;
     }
-    // Move the smallest item to its correct location
-    charPair tmp = arr[ i ];
-    arr[ i ] = arr[ idxSmallest ];
-    arr[ idxSmallest ] = tmp;
-  }
-  return;
+    
+    function setData(uint newData) public {
+        storedData = new Data
+    }
 }
 \end{lstlisting}
-\else
-\label{lst:sort}
-Code example commented out in this version. Load the \texttt{listings} package if you are using code listings.
-\fi
+\label{lst:simpleContract}
 
+Program \ref{lst:simpleContract} shows a contract \texttt{SimpleStorage} which contains a state variable of type \texttt{uint}. This contract also provides two functions, first of which is \texttt{getData()} which returns the value of the state variable \texttt{storedData}, and the second is \texttt{setData(uint newData)} which receives a parameter of type \texttt{uint} and will set that parameter's value into the state variable
 
+\section{Addresses}
 
+Address is a value type in the Solidity language to denote the Ethereum address, each of which contains a 20-byte value equalling to the size of an Ethereum address \citep{SolidityDocumentation}. The address can be from a real person holding an Ethereum wallet, or another contract, since contracts also own an Ethereum address. This type \texttt{address} includes some members, which is identical to methods and property of an object in other object-oriented programming languages, such as \texttt{balance} and \texttt{transfer}. By having this special value type, it is possible to programmatically send and receive money inside an Ethereum smart contract.
 
-\chapter{Referencing styles}
-\label{ch:referencingstyles}
+\section{Function modifiers}
+\label{section:functionModifiers}
 
-Different referencing styles determine how you create 1) in-text citations and 2) the bibliography.
-Two common referencing styles are presented in this chapter:
-\begin{enumerate}
-\ifnameyear
-  \item Numeric referencing (Vancouver system), such as [1], [2]\ldots
-  \item Name-year system (Harvard system), such as \citep{Weber2001}, \citep{Kaunisto2003}
-\else
-  \item Numeric referencing (Vancouver system), such as \cite{Weber2001}, \cite{Kaunisto2003}\ldots
-  \item Name-year system (Harvard system), such as (Weber 2001), (Kaunisto 2003)
-\fi
-\end{enumerate}
+Functions in Solidity contracts can have modifier to change the behavior of its own \citep{SolidityDocumentation}. With function modifiers, methods can be protected by checking a precondition before executing. Program \ref{lst:simpleFunctionModifier} shows a contract which includes a simple function modifier.
 
-In the Vancouver system, a running number is allocated to your sources and you insert the number into your text in square brackets [].
-In the Harvard system, the last name of the author and the year of publication are given in round brackets ().
-Both styles are acceptable, but the conventions for referencing vary between disciplines.
-You must pick one and use is consistently throughout your thesis.
+\begin{lstlisting}[float,caption={Simple function modifier in a contract \citep{SolidityDocumentation}.},label={lst:simpleFunctionModifier},language=Solidity]
+pragma solidity ^0.4.0;
 
+contract owned {
+    function owned() public { owner = msg.sender; }
+    address owner;
 
-\section{In-text citations}
-
-In-text citations are placed within the body of the text as close to the actual citation as possible.
-The citation is generally placed within the sentence before the full stop.
-
-\ifnameyear
-  \begin{quotation}
-  Weber argues that \ldots [1].\\
-  Cattaneo \emph{et al.} introduce in their study [2] a new\ldots\\
-  The result is \ldots [1, s.~23]. One must also note\ldots [1, s.~33--36]
-  \end{quotation}
-
-  \begin{quotation}
-  In accordance with the presented theory \ldots \citep{Weber2001}\\
-  It must especially be noted\ldots (\citeauthor{Cattaneo2004})\\
-  \citet[s.~230]{Weber2001} has stated \ldots
-  \end{quotation}
+    // This contract only defines a modifier but does not use
+    // it: it will be used in derived contracts.
+    // The function body is inserted where the special symbol
+    // `_;` in the definition of a modifier appears.
+    // This means that if the owner calls this function, the
+    // function is executed and otherwise, an exception is
+    // thrown.
+    modifier onlyOwner {
+        require(
+            msg.sender == owner,
+            "Only owner can call this function."
+        );
+        _;
+    }
     
-  \begin{quotation}
-  Based on literature in the field [1,3,5]\ldots\\
-  Based on literature in the field [1][3][5]\ldots\\
-  The topic has been widely studied [6--18]\ldots
-  \end{quotation}
-    
-  \begin{quotation}
-  \ldots existing literature \citep{Weber2001,Kaunisto2003,Cattaneo2004} has\ldots
-  \end{quotation}
-\else
-  \begin{quotation}
-  Weber argues that \ldots \cite{Weber2001}.\\
-  Cattaneo \emph{et al.} introduce in their study \cite{Cattaneo2004} a new\ldots\\
-  The result is \ldots \cite[s.~23]{Weber2001}. One must also note\ldots \cite[s.~33--36]{Weber2001}
-  \end{quotation}
+    // Calls to `close` only have an effect if
+    // they are made by the stored owner.
+    function close() public onlyOwner {
+        selfdestruct(owner);
+    }
+}
+\end{lstlisting}
 
-  \begin{quotation}
-  In accordance with the presented theory \ldots (Weber 2001)\\
-  It must especially be noted\ldots (Cattaneo \emph{et al.})\\
-  Weber (2001) has stated \ldots
-  \end{quotation}
-    
-  \begin{quotation}
-  Based on literature in the field \cite{Weber2001,Cattaneo2004,Kaunisto2003}\ldots\\
-  Based on literature in the field \cite{Weber2001}\cite{Cattaneo2004}\cite{Kaunisto2003}\ldots\\
-  The topic has been widely studied [6--18]\ldots % not really applicable when sorting bibliography alphabetically
-  \end{quotation}
-    
-  \begin{quotation}
-  \ldots existing literature (Weber 2001; Kaunisto 2003; Cattaneo et al. 2004) has\ldots
-  \end{quotation}
-\fi
+In Program \ref{lst:simpleFunctionModifier}, the contract \texttt{owned} is assigned an Ethereum address coming from the caller of the constructor function, which is included in \texttt{msg} variable, as the owner when being created. During the lifetime of the contract, the function \texttt{close()} can only be effectively executed if the caller's address is equal to the owner's address.
 
-For numeric referencing, the \emph{bibtex} reference management application and the LaTeX default \emph{cite} command are sufficient.
-Name-year citations require the \emph{natbib} package.
-The more recent reference management application \emph{biblatex} may be interesting due to its better Unicode support and wider metadata vocabulary for references, but this file is built on \emph{bibtex} because of the wider support for it.
-Depending on your runtime environment, getting the citations to output correctly may require multiple compilations.
+\section{Events}
 
-Example citations to produce a large bibliography: \citep{Weber2001} \citep{Cattaneo2004} \citep{Kaunisto2003} \citep{Li2004} \citep{Ho-Ching2003} \citep{Puhakka2004} \citep{Nissinen2011en} \citep{Ohlstrom2005} \citep{OMAP4430} \citep{InjectionMolding2005} \citep{Raakakk2002} \citep{Intel2013} \citep{Davies2004} \citep{SFSISO1000A1} \citep{Keskinen2005en} \citep{Sahkoturvallisuuslaki1996} \citep{Pan2013} \citep{Tty2005en} \citep{ConstInorgComp2005}, \citep{Radionuklidit2003en} \citep{Kalkkihiekkatiilet2004} \citep{Miettinen2005en}
+In order to get the best out of smart contracts, there has to be a method to communicate with them from the applications, website, ... Thus, events are designed as a contract feature in Solidity. Each event contains the data denoted from the time which its contract is created. When being called, the transaction's logs will store the event. Program \ref{lst:contractEvent} and \ref{lst:eventListener} demonstrates a simple interaction from a web application with a smart contract.
 
+\begin{lstlisting}[float,caption={Contract with Event \citep{SolidityDocumentation}.},label={lst:contractEvent},language=Solidity]
+pragma solidity ^0.4.0;
 
-\section{Bibliography}
+contract ClientReceipt {
+    event Deposit(
+        address indexed _from,
+        bytes32 indexed _id,
+        uint _value
+    );
 
-The entries must include all the details listed in Table \ref{tab:bibliographic-information}.
+    function deposit(bytes32 _id) public payable {
+        // Events are emitted using `emit`, followed by
+        // the name of the event and the arguments
+        // (if any) in parentheses. Any such invocation
+        // (even deeply nested) can be detected from
+        // the JavaScript API by filtering for `Deposit`.
+        emit Deposit(msg.sender, _id, msg.value);
+    }
+}
+\end{lstlisting}
 
-\begin{table}[ht!]
-\caption{Necessary bibliographic information.}
-\label{tab:bibliographic-information}
-% A simple table for which plain tabular is enough
-\begin{tabular}{l l | l l}
-\hline
-\textbf{\#} & \textbf{Numeric system} & \# & \textbf{Name-year system} \\
-\hline \hline
-1. & authors, & 1. & authors,\\
-& & 2. & (year of publication) \\
-2. & title, & 3. & title, \\
-3. & publisher, & 4. & publisher, \\
-4. & year of publication, & \\
-5. & pages, & 5. & pages, \\
-6. & URL, if applicable & 6. & URL, if applicable \\
-\hline
-\end{tabular}
-\end{table}
+\begin{lstlisting}[float,caption={Listening to Event from web applications \citep{SolidityDocumentation}.},label={lst:eventListener},language=JavaScript]
+var abi = /* abi as generated by the compiler */;
+var ClientReceipt = web3.eth.contract(abi);
+var clientReceipt = ClientReceipt.at("0x1234...ab67" /* address */);
 
-Formatting examples of an journal article in bibliography are provided below, first in the numeric style and then the name-year style.
+// Pass a callback to start watching immediately
+var event = clientReceipt.Deposit(function(error, result) {
+    if (!error)
+        console.log(result);
+});
+\end{lstlisting}
 
-\begin{quotation}
-\small
-\begin{enumerate}
-  \renewcommand*\labelenumi{[\theenumi]}
-  \setcounter{enumi}{99}
-  \item K. Keutzer, A.R. Newton, J.M. Rabaey, A. Sangiovanni-Vincentelli, System-level design: orthogonalization of concerns and platform-based design, IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol.19, no.12, Dec 2000, pp.1523--1543.
-\end{enumerate}
-\end{quotation}
+In Program \ref{lst:contractEvent}, contract \texttt{ClientDeposit} contains a function \texttt{deposit} which emit event \texttt{Deposit} when successfully executed. The event contains the Ethereum address of the sender, the identifier \texttt{\_id} and the amount of deposit \texttt{value}. After being compiled and deployed to the Ethereum network, an identifier called as \texttt{abi} is generated, which can be used from outside of the Ethereum network to specify the contract. In a webpage which embed the JavaScript program \ref{lst:eventListener},  the \texttt{web3} variable is to denote the web3 web framework, which is used to interact with Ethereum network, which then specify to interact with the contract \texttt{ClientDeposit}. The reference to the event \texttt{Deposit} is stored in \texttt{event} variable and then a callback function is passed into which will be invoked everytime the event is emitted.
 
-\begin{quotation}
-Keutzer, K., Newton, A.R., Rabaey, J.M. \& Sangiovanni-Vincentelli A. (2000). System-level design: orthogonalization of concerns and platform-based design. IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems. Vol.19(12), pp.1523--1543.
-\end{quotation}
+\chapter{Application Design and Requirements}
+\label{ch:ApplicationDesignAndReq}
 
-Your references are listed at the end of your thesis in alphabetical order based on the first author's last name.
+This chapter will describe the current system of the Blinky mobile application, including the backend server, the clients  and the requirements for the smart contract integration.
 
+\section{System overview and technical terms}
 
+The Blinky mobile application is a cross-platform client written in React Native \citep{ReactNative}, a framework to develop mobile applications using the JavaScript programming language. The usage of the application enables users to register, create a cost split event that happened after he/she paid for one event for everyone and need to split the cost equally and get the part of the money which others owe.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{blinky_system_architecture.jpg}
+    \caption{Blinky system architecture}
+    \label{fig:blinky_system}
+\end{figure}
+
+Users of the Blinky Application can also generate a web URL to share that split cost to friends or relatives. The URL acts as an interface that non-Blinky users can also interact with the services even though they do not have an account. The URL leads to a web application written in React library, which helps building user interface.
+
+Figure \ref{fig:blinky_system} represents the system powering Blinky and where those system are deployed to. 
+
+\section{Application use cases}
+
+The Blinky application was created with the main aim was to help its users to calculate the shares between friends after someone has paid before hand, to ensure a fair and equal split. The application also tries to free users from sticking to one particular payment solution, which allows user to register their preferred payment solution details and later user can share that details together with the calculation details to their friends. Their friends then see the calculation details and take the shared payment method in order to make the payment back to user. From here until the end of this thesis, each of this series of actions from user will be referred as a "cost split" event.
+
+\section{REST API}
+
+The clients, mobile applications and the web application  can communicate with the backend service with a Representational State Transfer (REST)  \citep{REST} Application Programming Interface (API). Data is represented and sent through Javascript Object Notation (JSON).
+
+Users in the mobile application will be granted access right determined by a JSON Web Token (JWT) which can be used in the header of every request to the back-end service. The token contains the user's information which  can easily be used to identify and authenticate them.
+
+The Blinky RestAPI Service will provide an interface for the mobile application so that users can create, edit and delete cost splits, and then invite participants, add expenses to split. Each time a cost split, participant or expense is created on the server, an unique identifier will be generated as an integer and attached to that object. The identifier is then also be used to refer to that object in later actions of its lifetime as well as to delete.
+\label{blinkyAPI}
+
+\section{Requirements}
+\label{section:requirements}
+
+The requirements for integration with the Ethereum smart contract include:
+
+\begin{itemize}
+    \item Generate a new data slot on the smart contract state when a new cost split is created on the application
+    \item Increment the data slot with new data each time a cost split is edited with a new user's action such as changing expenses' detail, participants in the cost split, generate an URL, or someone interacted with that URL
+\end{itemize}
+
+The requirements are chosen because they depict the common scenarios of transparency between small cost split of a party, such as how much each has to pay, who did declare to have paid.
+
+\subsection{Generating data slot on smart contract}
+
+The desired smart contract will hold a map which contains each cost split's happened event. Each cost split will have its own memory space to store events in a chronological order. Whenever a new event is fired on the client mobile application, a function inside the smart contract should be called provided with the content of the event such as the description, time stamp, user's identifier. The function will then process the input-ed data and append it into that cost split's memory space.
+
+\subsection{Provide a data-retrieval interface for user}
+
+Users of the Blinky application also have the right to request their data in a readable manner, an user-friendly interface. This means that the application will need to provide a function that will represent user and request the data about the user-desired cost split saved on the smart contract. The requested data should also be formatted into a reading-friendly that they can also use as a mean of proof for the action taken by him or anyone interacted with the shared cost split.
+
+\section{Asymptotic Notation}
+
+In order to measure the performance of an algorithm or a computer operation, asymptotic notation is used \citep{AlgorithmAndDataStructure}. In general terms, it is a theoretical framework to measure an algorithm's operation taken to complete the task given a number of inputs. For example, if there is \texttt{n} inputs and the algorithm needs to do \texttt{n} operations on each input, the total number of operations needed to complete the task is \texttt{n * n}, which means it will be exponentially proportional to the number of inputs. In asymptotic notation, only the highest order of operations is taken. From the last example, if the number of operations needed is \texttt{n * n + 2n} then the asymptotic notation is still \texttt{n * n} since it carries order of 2.
+
+\chapter{Implementation}
+\label{ch:implementation}
+
+This chapter will describe the proposed solution from this thesis's author for the requirements stated in the previous chapter. This includes explaining the chosen data structure for the smart contract, the framework that was used to connect the smart contract to the Blinky application, the method to validate user's inputs, and potential error handlings.
+
+\section{Smart contract data structure}
+
+In order to write and read cost split data as described in Section \ref{section:requirements}, the data structure of the smart contract will need to be defined. Since each cost split should have its own space to store its event data, one such option for organizing cost splits could be using a \texttt{mapping} \citep{SolidityMapping}. Each cost split will be identified from the key which uses the identifier getting from the Blinky API server as described in Section \ref{blinkyAPI}. This will make cost-split fetching quick and efficient as finding an element in a map knowing its key only need an asymtotic performance of $\Theta(1)$. 
+
+Each event of a cost split will need to carry a description, timestamp, the identifier of the person who initiates the event. Hence, \texttt{struct} data type is the only candidate for defining the data structure of a cost split event. This \texttt{struct} will contains a \texttt{string} type for the description, another \texttt{string} type for the time stamp in the ISO 8601 format \citep{ISOFormat} (such as \texttt{2018-11-12T19:26:47.858Z}) since this format is compatible with various programming languages. The \texttt{struct} will also contain an \texttt{uint} field for storing user's identifier from Blinky API Service. After this passage, the \texttt{struct} will be refered to as \texttt{CostSplitEvent} type.
+\label{DataStructure}
+
+Furthermore, after being able to access the data of a cost split using its key, each event should be shorted chronically. Therefore, the option of storing them as an array of \texttt{CostSplitEvent}. Since each event will be recorded chronically by nature, no sorting operation is necessary on the array.
+
+\section{Smart contract functions}
+
+Functions on the smart contract are necessary for interacting with the outer global Internet.
+
+Since the smart contract will need to be able to create a new data slot for a cost split, a function is needed, which can be named as \texttt{createCostSplit}. This function should accept the identifier of the cost split as a parameter and should return a \texttt{boolean} type to indicate if the creation is successful or not, either \texttt{true} or \texttt{false}.
+
+After a cost split is created, users will then began to interact with it in the Blinky Application, which will incur events. Therefore a new function is needed to start to add new event into a cost split. This function can be called \texttt{appendEvent}. In order to identify the cost split and to write the necessary data field of the event as specified in Section \ref{DataStructure}, the function will need to receive the identifier of the cost split, the identifier of the Blinky user initialized the event, time stamp and the event description as the parameter. This function should also denote if the action completes successfully or not so it should return a \texttt{boolean} type like \texttt{createCostSplit}.
+
+Since events happened on a cost split should be persistent due to the reason of transparency, which is the need to get the events and see when a payment is made, accepted or rejected, if a comment into the cost split is made and then deleted, there should not be a function to delete an event of a cost split. This also holds even for the action of deleting a cost split.
+
+\section{Web3 Framework}
+
+After defining the data structure and the functions needed for the smart contract, knowing a tool for communicate with it from the outside Internet is needed. Since the Internet is composed mainly with websites on the browser, such an option for it called the Web3 Framework exist. The advantage of this framework is by written in the pure Javascript language, which is the programming language used in the React Native framework in the Blinky mobile application. This enables fast and easy integration of the framework to both the web page and the mobile application. In order to install and configure the Web3 Framework, there are community composed tutorials, one of which can be found on the web site link: \citep{InstallWeb3}
+
+To conclude the installation of the Web3 Framework process, it consists of the following steps
+
+\begin{itemize}
+    \item React Native projects's dependencies can be managed using the \texttt{npm} package manager. Therefore, the content of the Web3 Framework can be downloaded from \texttt{npm}
+    \item Choose a suitable Framework version that is compatible with React Native. There are two newest versions: 1.0 and 0.20.x during this time of writing this thesis. Version 1.0's content is generated dynamically, which is not compatible with React Native due to the nature of a mobile application (the code inside the app will be static after being built). Therefore, version 0.22.x is chosen to be installed.
+    \item Pony-fill some APIs of Javascript that React Native does not support, such as the \texttt{crypto} API to perform encryption and hashing. Those can be solved by installing package \texttt{node-libs-react-native}
+\end{itemize}
+
+After following the mentioned steps and other smaller tweaks in the referral link above. The web3 framwework can be invoked in React Native.
+
+\begin{lstlisting}[float,caption={Calling Web3 functions and making transactions on the Ethereum blockchain \citep{SolidityDocumentation}.},label={lst:callweb3},language=Javascript]
+
+const web3 = new Web3(Web3.givenProvider);
+const contractAddress = "0x1a5c29c94D03C4c8f7414564CBD57295d61e898f";
+const contractAbi = [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "x",
+				"type": "uint256"
+			}
+		],
+		"name": "set",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "get",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+const myContract = web3.eth.contract(contractAbi);
+myContract.methods.myMethod("set")
+  .send({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
+  .then(function(receipt){})
+  .catch(function (error) {});
+
+\end{lstlisting}
+
+In Program \ref{lst:callweb3}, first an instace of the web3 framework is instantiated, with the default provider going together with the framework. Then the contract address contract address and it's Application Binary Interface (ABI) is specified and then be passed to initialize an instace of \texttt{web3.eth.contract}, which represents an Ethereum smart contract. After that, the program can start calling the functions on the smart contract by calling function \texttt{methods.myMethod} on the contract instance.
+
+\section{Error handling}
+
+Error handling is one of the most important aspect when developing a software, to ensure that the software works as expected and maintain a high-quality user experience. In this case of implementing the smart contract for storing cost split event, there are cases which may confuse the smart contract and therefore handling it when making it is a vital step. 
+
+Such errors that can happen are when the smart contract tries to add an event to a non-existing cost split. This kind of error without being handled will result in a malfunctioned application and unexpected user. In this case, since the cost split is not existing, the smart contract should stop the execution of the function and return a \texttt{false} value, so that the clients interacting with the contract is notified that the operation did not succeed, and display the situation on user's device.
+
+\chapter{Evaluation}
+\label{ch:evaluation}
+
+This chapter will concentrate on evaluating the smart contract's performance with the mentioned requirement in Chapter \ref{section:requirements}. The evaluation consists of security, privacy, latency and troubleshooting.
+
+\section{Security}
+\label{section:security}
+
+Since smart contract is public to the whole blockchain network, there has to be an option to define a rule to execute a function inside a smart contract. Such an option exist in the Solidity language called \textit{function modifier} as mentioned in Section \ref{section:functionModifiers} and a ready-made example in Program \ref{lst:simpleFunctionModifier}. This means the smart contract need to define a modifier that verifies that the function caller is exactly the smart contract owner. To identify who is the owner, the smart contract's constructor need to save the Ethereum address of the caller to one of its own property for later retrieval. This solution provided by Solidity is adequate to protect the smart contract's functions from being called by the unauthorized.
+
+\section{Privacy}
+
+Privacy was not the goal of Ethereum network since every block made in the past can be verified and looked up by the whole network. Therefore, storing the plain data coming from the Blinky application do not provide privacy for user. In order to achieve privacy, the data being sent to smart contract will need to be encrypted. However, a new issue comes up which is who will keep the encryption key. If user is responsible for holding the key, it will require a considerable amount of technical knowledge in order to send and retrieve encrypted data correctly, which will go against the aim of the Blinky application as it tries to provide user the most user-friendly solution. If Blinky application is responsible for holding the encryption key, the aim of decentralized blockchain is also lost since the trust is now given to the Blinky server that it will keep the encryption key secure.
+
+\section{Latency}
+
+The Ethereum network is currently running with the Proof of Work consensus mechanism \citep{RefWorks:doc:BitcoinWhitepaper}, which can only process 15 transactions per second on the whole network, according to the time of writing this thesis. This leads to the unavoided high latency for every time the smart contract is invoked and data is sent. Therefore, interacting with smart contract at this time will not guarantee fast transaction time.
 
 \chapter{Conclusion}
 \label{ch:conclusion}
 
-The writing guide is aimed at text as clear and understandable as possible, which is important in all written reports.
-This template and the corresponding Word template ensure that theses have a uniform and clear appearance.
+Smart contract can be utilized in social finance application such as the Blinky application which involves in creating and storing event data inside the application. In this work, the Solidity programming language was used to develop a smart contract which acts as a data store for events which happens when user's cost splits incur a new action as mentioned in Chapter \ref{section:requirements}. The language's documentation is well-written and therefore the smart contract was implemented in a short time interval. Since all the transactions happen inside the Ethereum blockchain and with the necessary security action as mentioned in Section \ref{section:security}, it ensures that the data will maintain its integrity, which will be a basis for a potential legal proof in the future.
 
-Each text and presentation must have a conclusion.
-This is higlighted by adding one to this template as well, albeit somewhat short and artificial.
-A concice summary table helps to reiterate the most important parts.
+To build the solution on blockchain also comes with its own cost. Thanks to high latency, users will need to expect longer transaction time in order for their event and data to be written or retrieved. The data that is sent to the smart contract will also not be guaranteed to be private.
 
+With the advantages and disadvantages of a blockchain-based application, this feature of providing user with reliable data source in a smart contract can be released, though not enabled by default. Users can, however, choose to option to each of their own cost split.
 
 
 %\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
@@ -519,109 +541,6 @@ A concice summary table helps to reiterate the most important parts.
   \bibliographystyle{bababbrtut}
 \fi
 \bibliography{references}
-
-
-
-
-\appendix
-
-\chapter{Usage of the tutthesis document class}
-\label{ch:classdocumentation}
-
-\section{Document class options}
-
-Class options:
-
-\begin{tabular}[h]{@{} p{0.3\textwidth-\tabcolsep} p{0.7\textwidth-\tabcolsep} @{}}
-\texttt{oneside}, \texttt{twoside} & As with the class \texttt{report} \\
-\texttt{draft}, \texttt{final} & As with the class \texttt{report} \\
-\texttt{globalnumbering} & If set, figures, tables and equations are numbered consecutively throughout the document instead of numbering per chapter. Note that there may be other numbered items; for some packages this may need to be set separately. \\
-\texttt{centeredcaptions} & If set, captions are displayed centered\\
-\texttt{draftfooter} & If set, the title and print date are shown in the footer. This may be handy if printing drafts. Implied by \texttt{draft}.
-\end{tabular}
-
-Commands redefined by the class:
-
-\begin{tabular}[h]{@{} p{0.3\textwidth-\tabcolsep} p{0.7\textwidth-\tabcolsep} @{}}
-  \verb|\maketitle| & Makes the title page from the given bibliographic information. Normally the title is set left-aligned (no hyphenation), but long titles may look better with the justified and form produced when option \texttt{justified} is used.
-\end{tabular}
-
-Additionally, by using the command \verb|\pagestyle{headings}| in the document preamble headings will be set in the upper margin, except for the first pages of each chapter.
-
-\section{Citations}
-Use the \texttt{natbib} package if you want to use name-year citations.
-The more recent \texttt{biblatex} system may be interesting as well.
-It works better with Unicode, and it has a richer metadata vocabulary (e.g. the ``total page count'' and ``internet source cited on'' fields).
-It may however cause some compatibility issues, and if you ever publish a scientific paper, usage of the older \texttt{bibtex} is usually mandated.
-Additionally, many databases only produce \texttt{bib} files with \texttt{bibtex} fields.
-
-
-\section{Text formatting in headings}
-
-If you are writing any more complicated math than equation \eqref{eq:Newton2}, any complex notation in your headings, or foreign characters, it is recommended to use a newer engine than PDFLatex.
-XeTeX and LuaTeX can utilize OpenType fonts (1996), rather than Type 1 (1984) or the older LaTeX default OT1.
-
-Actual math should not be in headings, but sometimes some more complex notation like superscripts is required.
-Do not use the LaTeX math mode, as that will result in wrong fonts and PDF bookmarks.
-Case-sensitive mathematical identifiers should not be converted to uppercase in headings.
-Some examples are below.
-
-\subsection{The 100 m\texttwosuperior\ project}
-
-Superscript two, unlike many other superscript characters, is widely supported and available in fonts.
-
-\newcommand*{\varx}{x}
-\subsection{Find \textit{\protect\varx}.} % \protect prevents uppercasing in chapter headings, on this level we could also do just \textit{x}
-
-A cursive variable in a section heading is quite simple, but for uppercased headings extra care is needed for the variable not to get uppercased.
-
-% Most fonts don't have the plussuperior glyph available, so we'll have to fake it. If you're using LuaTeX and you have the GNU Free fonts available, you could define a fallback with fontspec (being careful about sans/serif variants)
-\newcommand*{\plussuperior}{\textsuperscript{+}}
-% The name plussuperior is not arbitrary - hyperref psdextra recognizes it
-
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
-  \newcommand*{\tbeta}{β}
-  \subsection{\protect\tbeta\plussuperior-decay} % you could also load the package textcase and use \NoCaseChange{β}
-\else\ifx\textgreekfontmap\undefined\else
-  \subsection{\protect\textbeta\plussuperior-decay}
-  Note that with PDFLatex, Greek letters in headings appear off as there are no sans-serif bold upright lowercase Greek letters available in common Type 1 fonts.
-\fi\fi
-
-
-\section{Math mode}
-
-This section serves as a demonstration and test of math input.
-The equivalent text-mode typesetting is given for comparison, but obviously should not be used for mathematical material.
-The bold math mode is not recommended as moth math fonts do not have a bold variant, but it is included for the sake of completeness.
-
-Single-letter identifiers:
-
-\ifx \setmathfont \undefined % if unicode-math not loaded
-\begin{tabular}{@{} l l l l l l l l @{}}
-Mode & Default & Upright  & Italic    & Bold       & Sans-serif   & Teletype\\
-Text & a       & --       & \textit{a} & \textbf{a} & \textsf{a} & \texttt{a} \\
-Math & $a$     & $\mathrm{a}$ & $\mathit{a}$ & $\mathbf{a}$ & $\mathsf{a}$ & $\mathtt{a}$ \\
-Math, bold & {\mathversion{bold}$a$} & {\mathversion{bold}$\mathrm{a}$} & {\mathversion{bold}$\mathit{a}$} & {\mathversion{bold}$\mathbf{a}$} & {\mathversion{bold}$\mathsf{a}$} & --
-\end{tabular}
-\else % unicode-math loaded and we can use the identifier variants for better typesetting
-\begin{tabular}{@{} l l l l l l l l @{}}
-Mode & Default & Upright  & Italic    & Bold       & Sans-serif   & Teletype\\
-Text & a       & --       & \textit{a} & \textbf{a} & \textsf{a} & \texttt{a} \\
-Math & $a$     & $\symrm{a}$ & $\symit{a}$ & $\symbf{a}$ & $\symsf{a}$ & $\symtt{a}$ \\
-Math, bold & {\mathversion{bold}$a$} & {\mathversion{bold}$\symup{a}$} & {\mathversion{bold}$\symit{a}$} & {\mathversion{bold}$\symbf{a}$} & {\mathversion{bold}$\symsf{a}$} & --
-\end{tabular}
-\fi
-
-Multiple-letter identifiers:
-
-\begin{tabular}{@{} l l l l l l l l @{}}
-Mode & Default & Upright  & Italic    & Bold       & Sans-serif   & Teletype\\
-Text & NP       & --       & \textit{NP} & \textbf{NP} & \textsf{NP} & \texttt{NP} \\
-Math & --   & $\mathrm{NP}$ & $\mathit{NP}$ & $\mathbf{NP}$ & $\mathsf{NP}$ & $\mathtt{NP}$ \\
-Math, bold & -- & {\mathversion{bold}$\mathrm{NP}$} & {\mathversion{bold}$\mathit{NP}$} & {\mathversion{bold}$\mathbf{NP}$} & {\mathversion{bold}$\mathsf{NP}$} & --
-\end{tabular}
-
-The \emph{unicode-math} package also allows bold and/or italic sans-serif math typesetting.
 
 
 \end{document}
