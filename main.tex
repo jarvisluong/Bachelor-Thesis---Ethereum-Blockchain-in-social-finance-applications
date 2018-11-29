@@ -108,21 +108,22 @@
 
 \thesisdescription{Bachelor of Science and Engineering Thesis}
 \begin{abstract}
-Transaction-based activities existed since humanity was known, which can range from trading goods to information. Together with the flow of time, the requirements and complexity of transactions demand a role called middleman, acting as an escrow to ensure the transaction was made according to all parties' wish, which means trust becomes an important part of all transactions. However, the reliance of trust in this modern technological age has shown signs of limitations and mistrust was found in history, since the middleman cannot always be fully trusted. Hence, a new model of transaction needs to be invented to eliminate the need of middleman and trust in order to provide more robust transactions which lead to better efficiency in business and relationship.
 
-Cryptography was one of computer science's field which studies the process of making sure the information is secure, unaltered and non-reputable until it reaches the receiver. This technology has shown its usefulness and importance throughout history, which makes cryptography to be a viable solution for creating a new model of transaction, of which is called "Blockchain" nowadays.
+Centralized network solution have been around for a long time, despite having a considerable issue of trust, in which users need to rely on the implementation of the system. During unfortunate incidents such as hacking attacks, users' data can be stolen and distorted, as well as not available while requested. Blockchain is discovered and believed to be a distributed network solution which can mitigate the above issue.
 
-This bachelor's thesis studies the Ethereum blockchain, which is one of the most developed and widely-accepted blockchain implementation, to find its benefits in social financial applications, specifically providing transparency and availability of data to all parties. The research is done by implementing a smart contract on the Ethereum blockchain which will allow reading and writing data to Ethereum blockchain. With this smart contract, transactional data will be transparent, unalterable and guaranteed available for everyone. 
+This bachelor's thesis studies how blockchain network can be integrated into a social financial mobile application. The research is completed by developing a smart contract and connect it with the mobile application.
+
+ 
 \end{abstract}
 
 
 \chapter*{Preface}
 
-I would like to thank my employer Bankify Oy for suggesting this bachelor thesis and making this thesis possible. I want to also thank to my supervisor, Marko Helenius, for the aid I was given to improve this thesis.
+I would like to thank my employer Bankify Oy for suggesting this bachelor thesis and making this thesis possible. I want to also thank to my supervisor, Dr. Marko Helenius and my English teacher, Mrs Sarina Lewis for the aid I was given to improve this thesis and making it possible.
 
 \vspace{2\baselineskip}
 
-In Tampere, Finland, on 15 Sep 2018
+In Tampere, Finland, on 30 Nov 2018
 
 \vspace{2\baselineskip}
 
@@ -161,12 +162,18 @@ Parentheses are used with abbreviations then.
 
 % It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
 
-\chapter{Introduction (Work in Progress)}
+\chapter{Introduction}
 \label{ch:Introduction}
 
-Making transactions cannot be avoided in the technology and internet-based era. Internet users need to get the necessary work information, check bank account balances, purchasing items online, participate on voting, signing electrical contracts or papers,... All of the mentioned activities require a middleman individual or organization to help facilitating, validating and confirming. This current model of relying on the trust with middleman causes difficult issues (TO DO: add some facts about scams, unavailability of the current middle man bases transaction). Thus, a non-escrow transaction model needs to be derived to solve this issue. Nick Szabo proposed "smart contract" as an improved solution to eliminate the use of middleman (TO DO: insert reference to Nick Szabo's paper: \href{http://www.alamut.com/subj/economics/nick_szabo/smartContracts.html}{Smart Contracts: Building Blocks for Digital Markets}) (TO DO: read the above paper and then create a link to Bitcoin's blockchain invention by Satoshi Nakamoto)
+Developing modern application requires making a client which users will interact, and a server to manage the application's data over the Internet. Such data includes public records, facts, scientific knowledge, personal information and even legal proof. This client and server setup can be found almost at any organization in the planet. Hence, there is a huge trust being placed onto the systems which will be responsible for making sure the data is available and reliable. Most of the time, those systems do not fail everyone's trust, until there are unexpected, either objective or subjective incidents. Such of them can be unauthorized access by a hacking group, or by a corrupted group of people trying to gain their advantages from the data.
 
-Then tell a story an transition from Bitcoin to Ethereum and then link Ethereum's white paper here. Then tell the smart contract concept in Ethereum
+Finance is such an important aspect of everyone's life that in today's world there are so many services which was founded in order to serve the ones who need. Those services also rely heavily on the setup stated above, which generates a risk when the trusted system fail to protect customer's data. Countless amount of money from citizens will be lost to the bad people's hands. Therefore, there is a need for a better system that will protect data from the mentioned vulnerability. Luckily, one such solution was discovered which is called "blockchain". Blockchain leverages the power of the majority where everyone can have a chance of governing the data over the Internet, which makes it extremely hard for corrupted minds to execute an attack. Blockchain also embraces the good sides of backing up data since everyone can, and is responsible for keeping one copy of the data.
+
+The research problem of this thesis is to learn about the concept of blockchain, how it can achieve to solve the above mentioned problems and finally, develop a solution based on blockchain for a social finance mobile application which is called "Blinky", featuring a new way for users to split the cost between friends and handle the payment without directly interact with the payment methods. The objective is to show what is the solution, how the solution can be developed and then integrated to the system of the Blinky application. After that, the solution will be evaluated objectively with key requirements of a financial application.
+
+The second chapter presents the brief theoretical definition of blockchain, the advantages of using blockchain, a special feature of it called smart contracts and, then introduces a blockchain network that will be used for later chapters. The third chapter will described the necessary concepts while developing a smart contract, which involves explaining the special features of smart contract's development programming language called Solidity. The forth chapter will describe the current Blinky application system and the requirement needed for the new solution with blockchain. After that, the description about implementing the solution is listed in chapter 5, and then being evaluated in the sixth chapter. The final chapter concludes the results presented in the implementation and evaluation chapter, and then propose the usefulness and possibility to bring the solution to mass-usage.
+
+
 
 \chapter{Background}
 \label{ch:background}
@@ -221,15 +228,20 @@ With a smart contract, two random people on the planet, for example Anna and Bob
 
 \subsection{Supported Platform and Availability}
 
-Smart contract is a new an attractive feature that many modern blockchain has implemented this. Here are some popular example according to the current time of writing this thesis:
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Criteria}                 & \textbf{NEO}                         & \textbf{EOS} & \textbf{Ethereum} \\ \hline
+Maturity                          & 3.5 years                            & 1.5 years    & 5 years           \\ \hline
+Developer Activity past 12 months & 155 commits                          & 4795 commits & 973 commits       \\ \hline
+Number of Projects was built on   & \textless{}50                        & 93           & 2133              \\ \hline
+Supported Programming Languages   & C\#, VB.Net, F\#Java, Kotlin, Python & C++          & Solidity          \\ \hline
+\end{tabular}
+\caption{Popular Smart contract-enabled platforms and comparisons, which numbers are collected from \citep{StateOfDapps}, \citep{CrytoProjectsActivity} and \citep{NEODappsNumber} }
+\label{table:popularSmartContractPlatform}
+\end{table}
 
-\begin{itemize}
-    \item Ethereum \citep{Ethereum}
-    \item Eos.io \citep{EOS}
-    \item NEO Project \citep{NEO}
-\end{itemize}
-
-Each of the above mentioned platforms have its own strengths and weaknesses. However, in this thesis, a smart contract will be developed on the Ethereum blockchain due to its popularity and huge base of community and developer support.
+Smart contract is a new an attractive feature that many modern blockchain has implemented it, as shown in Table \ref{table:popularSmartContractPlatform}. EOS blockchain has the largest recent developer commits, however, its maturity is merely 1.5 years comparing to Ethereum's 5 years. That leads to lots of Projects have been built on Ethereum, which confirms its reliability to work with as a smart contract platform. With the mentioned analysis, it is clear that Ethereum will be chosen as the platform for developing a smart contract in this thesis.
 
 \section{The Ethereum blockchain}
 
@@ -367,7 +379,7 @@ This chapter will describe the current system of the Blinky mobile application, 
 
 \section{System overview and technical terms}
 
-The Blinky mobile application is a cross-platform client written in React Native \citep{ReactNative}, a framework to develop mobile applications using the JavaScript programming language. The usage of the application enables users to register, create a cost split event that happened after he/she paid for one event for everyone and need to split the cost equally and get the part of the money which others owe.
+The Blinky mobile application is a cross-platform client written in React Native \citep{ReactNative}, a framework to develop mobile applications using the JavaScript programming language. The usage of the application enables users to register, create a Cost-Split event that happened after he/she paid for one event for everyone and need to split the cost equally and get the part of the money which others owe.
 
 \begin{figure}
     \centering
@@ -382,7 +394,7 @@ Figure \ref{fig:blinky_system} represents the system powering Blinky and where t
 
 \section{Application use cases}
 
-The Blinky application was created with the main aim was to help its users to calculate the shares between friends after someone has paid before hand, to ensure a fair and equal split. The application also tries to free users from sticking to one particular payment solution, which allows user to register their preferred payment solution details and later user can share that details together with the calculation details to their friends. Their friends then see the calculation details and take the shared payment method in order to make the payment back to user. From here until the end of this thesis, each of this series of actions from user will be referred as a "cost split" event.
+The Blinky application was created with the main aim was to help its users to calculate the shares between friends after someone has paid before hand, to ensure a fair and equal split. The application also tries to free users from sticking to one particular payment solution, which allows user to register their preferred payment solution details and later user can share that details together with the calculation details to their friends. Their friends then see the calculation details and take the shared payment method in order to make the payment back to user. From here until the end of this thesis, each of this series of actions from user will be referred as a "Cost-Split" event.
 
 \section{REST API}
 
@@ -390,7 +402,7 @@ The clients, mobile applications and the web application  can communicate with t
 
 Users in the mobile application will be granted access right determined by a JSON Web Token (JWT) which can be used in the header of every request to the back-end service. The token contains the user's information which  can easily be used to identify and authenticate them.
 
-The Blinky RestAPI Service will provide an interface for the mobile application so that users can create, edit and delete cost splits, and then invite participants, add expenses to split. Each time a cost split, participant or expense is created on the server, an unique identifier will be generated as an integer and attached to that object. The identifier is then also be used to refer to that object in later actions of its lifetime as well as to delete.
+The Blinky RestAPI Service will provide an interface for the mobile application so that users can create, edit and delete Cost-Splits, and then invite participants, add expenses to split. Each time a Cost-Split, participant or expense is created on the server, an unique identifier will be generated as an integer and attached to that object. The identifier is then also be used to refer to that object in later actions of its lifetime as well as to delete.
 \label{blinkyAPI}
 
 \section{Requirements}
@@ -399,19 +411,19 @@ The Blinky RestAPI Service will provide an interface for the mobile application 
 The requirements for integration with the Ethereum smart contract include:
 
 \begin{itemize}
-    \item Generate a new data slot on the smart contract state when a new cost split is created on the application
-    \item Increment the data slot with new data each time a cost split is edited with a new user's action such as changing expenses' detail, participants in the cost split, generate an URL, or someone interacted with that URL
+    \item Generate a new data slot on the smart contract state when a new Cost-Split is created on the application
+    \item Increment the data slot with new data each time a Cost-Split is edited with a new user's action such as changing expenses' detail, participants in the Cost-Split, generate an URL, or someone interacted with that URL
 \end{itemize}
 
-The requirements are chosen because they depict the common scenarios of transparency between small cost split of a party, such as how much each has to pay, who did declare to have paid.
+The requirements are chosen because they depict the common scenarios of transparency between small Cost-Split of a party, such as how much each has to pay, who did declare to have paid.
 
 \subsection{Generating data slot on smart contract}
 
-The desired smart contract will hold a map which contains each cost split's happened event. Each cost split will have its own memory space to store events in a chronological order. Whenever a new event is fired on the client mobile application, a function inside the smart contract should be called provided with the content of the event such as the description, time stamp, user's identifier. The function will then process the input-ed data and append it into that cost split's memory space.
+The desired smart contract will hold a map which contains each Cost-Split's happened event. Each Cost-Split will have its own memory space to store events in a chronological order. Whenever a new event is fired on the client mobile application, a function inside the smart contract should be called provided with the content of the event such as the description, time stamp, user's identifier. The function will then process the input-ed data and append it into that Cost-Split's memory space.
 
 \subsection{Provide a data-retrieval interface for user}
 
-Users of the Blinky application also have the right to request their data in a readable manner, an user-friendly interface. This means that the application will need to provide a function that will represent user and request the data about the user-desired cost split saved on the smart contract. The requested data should also be formatted into a reading-friendly that they can also use as a mean of proof for the action taken by him or anyone interacted with the shared cost split.
+Users of the Blinky application also have the right to request their data in a readable manner, an user-friendly interface. This means that the application will need to provide a function that will represent user and request the data about the user-desired Cost-Split saved on the smart contract. The requested data should also be formatted into a reading-friendly that they can also use as a mean of proof for the action taken by him or anyone interacted with the shared Cost-Split.
 
 \section{Asymptotic Notation}
 
@@ -420,32 +432,55 @@ In order to measure the performance of an algorithm or a computer operation, asy
 \chapter{Implementation}
 \label{ch:implementation}
 
-This chapter will describe the proposed solution from this thesis's author for the requirements stated in the previous chapter. This includes explaining the chosen data structure for the smart contract, the framework that was used to connect the smart contract to the Blinky application, the method to validate user's inputs, and potential error handlings.
+This chapter will describe the proposed solution for implementing a smart contract in this thesis reflecting the requirements outlined in the previous chapter. This will include explaining: 1) The chosen data structure for the smart contract; 2) The necessary functions for the smart contract; 3) Installing the Web3 framework which is used to connect the smart contract to the Blinky application and 4) The solutions to handle potential error during the lifetime of the smart contract.
 
 \section{Smart contract data structure}
+\label{section:DataStructure}
 
-In order to write and read cost split data as described in Section \ref{section:requirements}, the data structure of the smart contract will need to be defined. Since each cost split should have its own space to store its event data, one such option for organizing cost splits could be using a \texttt{mapping} \citep{SolidityMapping}. Each cost split will be identified from the key which uses the identifier getting from the Blinky API server as described in Section \ref{blinkyAPI}. This will make cost-split fetching quick and efficient as finding an element in a map knowing its key only need an asymtotic performance of $\Theta(1)$. 
+In order to write and read Cost-Split data (as described in Section \ref{section:requirements}), the data structure of the smart contract will need to be defined. Figure \ref{fig:smartcontractdatastructure} provides a visualized data structure plan. Since each Cost-Split should have its own space to store its event data, one such option for organizing Cost-Splits could be using a \texttt{mapping} \citep{SolidityMapping}. Each Cost-Split will be identified from the key obtained from the Blinky API server, as described in Section \ref{blinkyAPI}. This will make Cost-Split fetching as quick and efficient because to find an element in a \texttt{mapping} data structure knowing the key (in this case, the Cost-Split's identifier) only need an asymtotic performance of $\Theta(1)$. 
 
-Each event of a cost split will need to carry a description, timestamp, the identifier of the person who initiates the event. Hence, \texttt{struct} data type is the only candidate for defining the data structure of a cost split event. This \texttt{struct} will contains a \texttt{string} type for the description, another \texttt{string} type for the time stamp in the ISO 8601 format \citep{ISOFormat} (such as \texttt{2018-11-12T19:26:47.858Z}) since this format is compatible with various programming languages. The \texttt{struct} will also contain an \texttt{uint} field for storing user's identifier from Blinky API Service. After this passage, the \texttt{struct} will be refered to as \texttt{CostSplitEvent} type.
+Each event of a Cost-Split will need to carry a description, timestamp and the identifier of the person who initiates the event. Hence, \texttt{struct} data type is the only candidate for defining the data structure of a Cost-Split event. This \texttt{struct} will contain a \texttt{string} type for the description and another \texttt{string} type for the time stamp in the ISO 8601 format \citep{ISOFormat} (such as \texttt{2018-11-12T19:26:47.858Z}) since this format is compatible with various programming languages. The \texttt{struct} will also contain an \texttt{uint} field for storing the user's identifier from Blinky API Service. After this passage, the \texttt{struct} will be refered to as the \texttt{CostSplitEvent} type.
 \label{DataStructure}
 
-Furthermore, after being able to access the data of a cost split using its key, each event should be shorted chronically. Therefore, the option of storing them as an array of \texttt{CostSplitEvent}. Since each event will be recorded chronically by nature, no sorting operation is necessary on the array.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{BlinkyCostSplitSmartContractDataStructure.png}
+    \caption{Blinky's Cost-Split Smart contract data structure \citep{RefWorks:doc:MasteringBlockchain}}
+    \label{fig:smartcontractdatastructure}
+\end{figure}
+
+
+Furthermore, after being able to access the data of a Cost-Split using its key, each event should be sorted chronologically. Therefore, the smart contract will need to store the Cost-Split data as an \texttt{Array} of \texttt{CostSplitEvent}. Since each event will be recorded chronically by nature, no sorting operation is necessary on the array.
 
 \section{Smart contract functions}
+\label{section:SmartContractFunctions}
 
-Functions on the smart contract are necessary for interacting with the outer global Internet.
+Since the smart contract will need to be able to create a new data slot for a Cost-Split, a function is needed, which can be named as \texttt{createCostSplit}. This function should accept the identifier of the Cost-Split as a parameter and should return a \texttt{boolean} type to indicate if the creation is successful or not, either \texttt{true} or \texttt{false}.
 
-Since the smart contract will need to be able to create a new data slot for a cost split, a function is needed, which can be named as \texttt{createCostSplit}. This function should accept the identifier of the cost split as a parameter and should return a \texttt{boolean} type to indicate if the creation is successful or not, either \texttt{true} or \texttt{false}.
+After a Cost-Split is created, users will then began to interact with it in the Blinky Application, which will incur events. Therefore, a new function is needed to start to add new events into a Cost-Split. This function can be called \texttt{appendEvent}. In order to identify the Cost-Split and to write the necessary data field of the event as specified in Section \ref{DataStructure}, the function will need to receive the identifier of the Cost-Split, the identifier of the Blinky user who initialized the event, the event's time stamp and the event description as the parameter. This function should also denote if the action completes successfully or not so it should return a \texttt{boolean} type like \texttt{createCostSplit}. Figure \ref{lst:appendEventFunction} outlined the function's signature as described above for the purpose of demonstration.
 
-After a cost split is created, users will then began to interact with it in the Blinky Application, which will incur events. Therefore a new function is needed to start to add new event into a cost split. This function can be called \texttt{appendEvent}. In order to identify the cost split and to write the necessary data field of the event as specified in Section \ref{DataStructure}, the function will need to receive the identifier of the cost split, the identifier of the Blinky user initialized the event, time stamp and the event description as the parameter. This function should also denote if the action completes successfully or not so it should return a \texttt{boolean} type like \texttt{createCostSplit}.
+\begin{lstlisting}[float,caption={Skeleton implementation of function \texttt{appendEvent}.},label={lst:appendEventFunction},language=Solidity]
 
-Since events happened on a cost split should be persistent due to the reason of transparency, which is the need to get the events and see when a payment is made, accepted or rejected, if a comment into the cost split is made and then deleted, there should not be a function to delete an event of a cost split. This also holds even for the action of deleting a cost split.
+contract BlinkyCostSplit {
+ ...
+ function appendEvent(
+    uint costSplitId,
+    uint userId,
+    string timestamp,
+    string eventDescription) returns (bool) {
+   // The function's implementation
+   return true;
+ }
+ ...
+}
+
+\end{lstlisting}
+
+In a normal data management software, there should be functions for creating, reading, updating and deleting data. However, in this particular smart contract, data should not be updated or deleted, since the aim of the smart contract is to embrace the transparency, which means data should be as it is from the moment of being created. Users' will to update or delete Cost-Split's events should, therefore, be added to the event list as a new event with the description of what is user's will.
 
 \section{Web3 Framework}
 
-After defining the data structure and the functions needed for the smart contract, knowing a tool for communicate with it from the outside Internet is needed. Since the Internet is composed mainly with websites on the browser, such an option for it called the Web3 Framework exist. The advantage of this framework is by written in the pure Javascript language, which is the programming language used in the React Native framework in the Blinky mobile application. This enables fast and easy integration of the framework to both the web page and the mobile application. In order to install and configure the Web3 Framework, there are community composed tutorials, one of which can be found on the web site link: \citep{InstallWeb3}
-
-To conclude the installation of the Web3 Framework process, it consists of the following steps
+After defining the data structure (mentioned in Section \ref{section:DataStructure}) and the functions needed for the smart contract (as mentioned in \ref{section:SmartContractFunctions} ), knowing a tool for communicating with the smart contract from the outside Internet is necessary, and such an option for it called the Web3 Framework exists. The advantage of this framework that it is written in the Javascript programming language, which is also used in the React Native framework in the Blinky mobile application. Hence, this enables fast and easy integration of the framework to both the web page and the mobile application of Blinky. In order to install and configure the Web3 Framework, the following steps are required:
 
 \begin{itemize}
     \item React Native projects's dependencies can be managed using the \texttt{npm} package manager. Therefore, the content of the Web3 Framework can be downloaded from \texttt{npm}
@@ -453,7 +488,8 @@ To conclude the installation of the Web3 Framework process, it consists of the f
     \item Pony-fill some APIs of Javascript that React Native does not support, such as the \texttt{crypto} API to perform encryption and hashing. Those can be solved by installing package \texttt{node-libs-react-native}
 \end{itemize}
 
-After following the mentioned steps and other smaller tweaks in the referral link above. The web3 framwework can be invoked in React Native.
+There are also community composed tutorials, one of which can be found on the web site link: \citep{InstallWeb3}
+After following the above mentioned steps and conducting other smaller tweaks as presented in the link above, The web3 framwework can be invoked in React Native as an example in Program \ref{lst:callweb3}
 
 \begin{lstlisting}[float,caption={Calling Web3 functions and making transactions on the Ethereum blockchain \citep{SolidityDocumentation}.},label={lst:callweb3},language=Javascript]
 
@@ -497,13 +533,43 @@ myContract.methods.myMethod("set")
 
 \end{lstlisting}
 
-In Program \ref{lst:callweb3}, first an instace of the web3 framework is instantiated, with the default provider going together with the framework. Then the contract address contract address and it's Application Binary Interface (ABI) is specified and then be passed to initialize an instace of \texttt{web3.eth.contract}, which represents an Ethereum smart contract. After that, the program can start calling the functions on the smart contract by calling function \texttt{methods.myMethod} on the contract instance.
+In Program \ref{lst:callweb3}, first an instance of the web3 framework is instantiated, with the default provider bundled within the framework. Then the contract address contract address and it's Application Binary Interface (ABI) is specified in line 3, 4and then passed to the initialization function that creates an instance of \texttt{web3.eth.contract} in line 34, which represents an Ethereum smart contract. After that, the program can start calling the functions on the smart contract by calling function \texttt{methods.myMethod} on the contract instance (as presented in line 36 to 38.
 
 \section{Error handling}
 
-Error handling is one of the most important aspect when developing a software, to ensure that the software works as expected and maintain a high-quality user experience. In this case of implementing the smart contract for storing cost split event, there are cases which may confuse the smart contract and therefore handling it when making it is a vital step. 
+Error handling is one of the most important aspects to consider when developing a software product, to ensure that the software works as expected and maintains a high-quality user experience. In this case of implementing the smart contract for storing Cost-Split event, there are cases which may confuse the smart contract and therefore handling the errors while developing the smart contract is a vital step.
 
-Such errors that can happen are when the smart contract tries to add an event to a non-existing cost split. This kind of error without being handled will result in a malfunctioned application and unexpected user. In this case, since the cost split is not existing, the smart contract should stop the execution of the function and return a \texttt{false} value, so that the clients interacting with the contract is notified that the operation did not succeed, and display the situation on user's device.
+Errors that can happen are when the smart contract tries to add an event to a non-existing Cost-Split, or in other words, the function \texttt{appendEvent} is given an invalid Cost-Split identifier. In solidity, this function invocation will result in throwing an \texttt{Exception}, all the changes to smart contract during that function call will be reverted and the failure will be notified to the caller (in this case, the Blinky Application). However, this kind of error without being handled will degrade user experience since they may not be aware of how the Blinky Application handles the event sending. This thesis will propose a way to handle this error:
+
+ The smart contract's function will use \texttt{require} function as a way to verify the validity of the data (in this case, checking the Cost-Split's identifier if it exists in the smart contract's state). If the assertion does not satisfy, the function will throw an early \texttt{Exception} to tell that the identifier is not valid. The Blinky Application can catch this Exception and display an appropiate dialog to notify user. An example of this error handling is presented in Program \ref{lst:assertValidateInput}. From the Program, it is noted that in Solidity, the default value for a variable is 0 if it has not been set to any value yet. Hence, it is possible to check for the existence of a Cost-Split in the smart contract's state by trying to access its value inside \texttt{mapping costSplitMap}, then compare it to 0. The error message "Cost Split does not exist in the smart contract" will be thrown if the assertion fails.
+
+\begin{lstlisting}[float,caption={Using \texttt{require} function to validate input data},label={lst:assertValidateInput},language=Solidity]
+contract BlinkyCostSplit {
+ 
+ struct CostSplitEvent {
+    uint userId;
+    string description;
+    string timestamp
+ }
+ 
+ mapping(uint => CostSplitEvent) costSplitMap;
+ 
+ function appendEvent(
+    uint costSplitId,
+    uint userId,
+    string timestamp,
+    string eventDescription) returns (bool) {
+   // The function's implementation
+    require(
+        costSplitMap[costSplitId] != 0,
+        "Cost Split does not exist in the smart contract"
+    );
+   // ... Remaining implementation for this function
+   return true;
+ }
+ ...
+}
+\end{lstlisting}
 
 \chapter{Evaluation}
 \label{ch:evaluation}
@@ -526,11 +592,11 @@ The Ethereum network is currently running with the Proof of Work consensus mecha
 \chapter{Conclusion}
 \label{ch:conclusion}
 
-Smart contract can be utilized in social finance application such as the Blinky application which involves in creating and storing event data inside the application. In this work, the Solidity programming language was used to develop a smart contract which acts as a data store for events which happens when user's cost splits incur a new action as mentioned in Chapter \ref{section:requirements}. The language's documentation is well-written and therefore the smart contract was implemented in a short time interval. Since all the transactions happen inside the Ethereum blockchain and with the necessary security action as mentioned in Section \ref{section:security}, it ensures that the data will maintain its integrity, which will be a basis for a potential legal proof in the future.
+Smart contract can be utilized in social finance application such as the Blinky application which involves in creating and storing event data inside the application. In this work, the Solidity programming language was used to develop a smart contract which acts as a data store for events which happens when user's Cost-Splits incur a new action as mentioned in Chapter \ref{section:requirements}. The language's documentation is well-written and therefore the smart contract was implemented in a short time interval. Since all the transactions happen inside the Ethereum blockchain and with the necessary security action as mentioned in Section \ref{section:security}, it ensures that the data will maintain its integrity, which will be a basis for a potential legal proof in the future.
 
 To build the solution on blockchain also comes with its own cost. Thanks to high latency, users will need to expect longer transaction time in order for their event and data to be written or retrieved. The data that is sent to the smart contract will also not be guaranteed to be private.
 
-With the advantages and disadvantages of a blockchain-based application, this feature of providing user with reliable data source in a smart contract can be released, though not enabled by default. Users can, however, choose to option to each of their own cost split.
+With the advantages and disadvantages of a blockchain-based application, this feature of providing user with reliable data source in a smart contract can be released, though not enabled by default. Users can, however, choose to option to each of their own Cost-Split.
 
 
 %\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
