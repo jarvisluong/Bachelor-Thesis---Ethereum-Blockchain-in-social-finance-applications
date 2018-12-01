@@ -38,7 +38,6 @@
 \else\providecommand{\citep}{\cite} % This template is written using \citep to get name-year citations right, and in numerical mode the command is here aliased to the standard \cite. If you use numbered citations, leave this out and use \cite
 \fi
 
-
 % ===============
 % Useful packages
 % ===============
@@ -47,6 +46,7 @@
 \usepackage{microtype} % subtle but nice improvements to how text is printed
 
 \usepackage{textcase} % may be used to keep parts of title lowercase
+\usepackage{makecell}
 
 \usepackage{array}
 \usepackage{tabularx} % e.g. multiline cells
@@ -228,14 +228,14 @@ With a smart contract, two random people on the planet, for example Anna and Bob
 
 \subsection{Supported Platform and Availability}
 
-\begin{table}[]
+\begin{table}[h]
 \begin{tabular}{|l|l|l|l|}
 \hline
 \textbf{Criteria}                 & \textbf{NEO}                         & \textbf{EOS} & \textbf{Ethereum} \\ \hline
 Maturity                          & 3.5 years                            & 1.5 years    & 5 years           \\ \hline
 Developer Activity past 12 months & 155 commits                          & 4795 commits & 973 commits       \\ \hline
 Number of Projects was built on   & \textless{}50                        & 93           & 2133              \\ \hline
-Supported Programming Languages   & C\#, VB.Net, F\#Java, Kotlin, Python & C++          & Solidity          \\ \hline
+Supported Programming Languages   & \makecell{C\#, VB.Net, \\ F\#Java, Kotlin, Python} & C++        & Solidity          \\ \hline
 \end{tabular}
 \caption{Popular Smart contract-enabled platforms and comparisons, which numbers are collected from \citep{StateOfDapps}, \citep{CrytoProjectsActivity} and \citep{NEODappsNumber} }
 \label{table:popularSmartContractPlatform}
@@ -301,7 +301,7 @@ Address is a value type in the Solidity language to denote the Ethereum address,
 
 Functions in Solidity contracts can have modifier to change the behavior of its own \citep{SolidityDocumentation}. With function modifiers, methods can be protected by checking a precondition before executing. Program \ref{lst:simpleFunctionModifier} shows a contract which includes a simple function modifier.
 
-\begin{lstlisting}[float,caption={Simple function modifier in a contract \citep{SolidityDocumentation}.},label={lst:simpleFunctionModifier},language=Solidity]
+\begin{lstlisting}[float,caption={Simple function modifier in a contract \citep{SolidityDocumentation}.},label={lst:simpleFunctionModifier},language=Solidity,float=h,floatplacement=h]
 pragma solidity ^0.4.0;
 
 contract owned {
@@ -594,9 +594,10 @@ The Ethereum network is currently running with the Proof of Work consensus mecha
 
 Smart contract can be utilized in social finance application such as the Blinky application which involves in creating and storing event data inside the application. In this work, the Solidity programming language was used to develop a smart contract which acts as a data store for events which happens when user's Cost-Splits incur a new action as mentioned in Chapter \ref{section:requirements}. The language's documentation is well-written and therefore the smart contract was implemented in a short time interval. Since all the transactions happen inside the Ethereum blockchain and with the necessary security action as mentioned in Section \ref{section:security}, it ensures that the data will maintain its integrity, which will be a basis for a potential legal proof in the future.
 
-To build the solution on blockchain also comes with its own cost. Thanks to high latency, users will need to expect longer transaction time in order for their event and data to be written or retrieved. The data that is sent to the smart contract will also not be guaranteed to be private.
+By implementing a smart contract and connect it to the Blinky application. Advantages and disadvantages of blockchain can be realized. It is shown that the data state inside the smart contract can be directly requested and appended without going through the Blinky server. This improves the availability and democracy when updating data. Furthermore, it is also shown that the data update to smart contract has to pass the conditions provided in the smart contract's code in order to be accepted. The conditions are verified in every nodes joining the Ethereum network as explained in Section \ref{contentCreationOnBlockchain}. However, as mentioned in Chaper \ref{ch:evaluation}, every transaction (or data appending request) has to wait for the Ethereum network until it is verified and processed. This is a potential issue that affects user's experience since waiting a long time for a small transaction is discouraged. In addition, data on the blockchain by default does not provide users with privacy (in other words, everyone can request and access data on the blockchain). This also requires users to understand and accept that their data on the blockchain will not be private by default.
 
-With the advantages and disadvantages of a blockchain-based application, this feature of providing user with reliable data source in a smart contract can be released, though not enabled by default. Users can, however, choose to option to each of their own Cost-Split.
+With the advantages and disadvantages of a blockchain-based application, users need to understand what they can take advantage with what drawbacks they have to accept. For some users, this is acceptable. Therefore, it is concluded that this feature of using smart contract in a Blinky's Cost Split should not be used by default. The application should guide user of the feature and its benefits as well as drawbacks.
+
 
 
 %\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
