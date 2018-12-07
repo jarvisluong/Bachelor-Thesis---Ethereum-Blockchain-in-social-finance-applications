@@ -8,7 +8,7 @@
 \fi
 
 
-\documentclass[twoside,draftfooter]{tutthesis} % see appendix for list of options
+\documentclass[twoside,numperchapter]{tutthesis} % see appendix for list of options
 
 \pagestyle{headings} % Adds titles to the header
 
@@ -271,26 +271,26 @@ Solidity is a modern language inspired by many predecessors such as C++, Python 
 
 \section{Contracts}
 
-Contracts can be known as the soul of Solidity, and are similar to classes in other object-oriented programming languages, with the appearance of state variables equivalent to class properties, functions to class methods. For example, Program \ref{lst:simpleContract} shows a basic contract.
+Contracts can be known as the soul of Solidity, and a contract's design reassembles to that of classes in other object-oriented programming languages, with the appearance of state variables equivalent to class properties, functions to class methods. For example, Program \ref{lst:simpleContract} shows a basic contract.
 
 \begin{lstlisting}[float,caption={A simple contract in Solidity.},label={lst:simpleContract},language=Solidity]
 pragma solidity ^0.4.0;
 
-contract SimpleStorage {
-    uint storedData; // State variable
+contract IntegerStorage {
+    uint storedInt; // This is the state variable
     
-    function getData() public returns uint {
-        return storedData;
+    function getInt() public returns uint {
+        return storedInt;
     }
     
-    function setData(uint newData) public {
-        storedData = new Data
+    function setInt(uint newInt) public {
+        storedInt = newInt
     }
 }
 \end{lstlisting}
 \label{lst:simpleContract}
 
-Program \ref{lst:simpleContract} shows a contract \texttt{SimpleStorage} which contains a state variable of type \texttt{uint}. This contract also provides two functions, first of which is \texttt{getData()} which returns the value of the state variable \texttt{storedData}, and the second is \texttt{setData(uint newData)} which receives a parameter of type \texttt{uint} and will set that parameter's value into the state variable
+Program \ref{lst:simpleContract} shows a contract \texttt{IntegerStorage} which contains a state variable of type \texttt{uint}. This contract also provides two functions, first of which is \texttt{getInt()} which returns the value of the state variable \texttt{storedInt}, and the second is \texttt{setInt(uint newInt)} which receives a parameter of type \texttt{uint} and will set that parameter's value into the state variable
 
 \section{Addresses}
 
@@ -304,29 +304,30 @@ Functions in Solidity contracts can have modifier to change the behavior of its 
 \begin{lstlisting}[float,caption={Simple function modifier in a contract \citep{SolidityDocumentation}.},label={lst:simpleFunctionModifier},language=Solidity,float=h,floatplacement=h]
 pragma solidity ^0.4.0;
 
-contract owned {
-    function owned() public { owner = msg.sender; }
+contract OwnedWithModifier {
+    function OwnedWithModifier() public { owner = msg.sender; }
     address owner;
 
-    // This contract only defines a modifier but does not use
-    // it: it will be used in derived contracts.
+    // This contract defines a modifier and it will
+    // use it in function close()
     // The function body is inserted where the special symbol
     // `_;` in the definition of a modifier appears.
-    // This means that if the owner calls this function, the
-    // function is executed and otherwise, an exception is
-    // thrown.
+    // This function modifier ensures that only the
+    // owner of this smart contract can execute the close()
+    // function and in other cases, an exception will
+    // be thrown
     modifier onlyOwner {
         require(
             msg.sender == owner,
-            "Only owner can call this function."
+            "You need to be the owner to call this function"
         );
         _;
     }
     
-    // Calls to `close` only have an effect if
-    // they are made by the stored owner.
+    // This function can only execute if the owner
+    // is calling it
     function close() public onlyOwner {
-        selfdestruct(owner);
+        // Do something inside this function
     }
 }
 \end{lstlisting}
@@ -337,11 +338,11 @@ In Program \ref{lst:simpleFunctionModifier}, the contract \texttt{owned} is assi
 
 In order to get the best out of smart contracts, there has to be a method to communicate with them from the applications, website, ... Thus, events are designed as a contract feature in Solidity. Each event contains the data denoted from the time which its contract is created. When being called, the transaction's logs will store the event. Program \ref{lst:contractEvent} and \ref{lst:eventListener} demonstrates a simple interaction from a web application with a smart contract.
 
-\begin{lstlisting}[float,caption={Contract with Event \citep{SolidityDocumentation}.},label={lst:contractEvent},language=Solidity]
+\begin{lstlisting}[float,caption={Contract with Event derived from \citep{SolidityDocumentation}.},label={lst:contractEvent},language=Solidity]
 pragma solidity ^0.4.0;
 
-contract ClientReceipt {
-    event Deposit(
+contract DepositOrderReceiver {
+    event DepositOrderReceiver(
         address indexed _from,
         bytes32 indexed _id,
         uint _value
@@ -360,17 +361,17 @@ contract ClientReceipt {
 
 \begin{lstlisting}[float,caption={Listening to Event from web applications \citep{SolidityDocumentation}.},label={lst:eventListener},language=JavaScript]
 var abi = /* abi as generated by the compiler */;
-var ClientReceipt = web3.eth.contract(abi);
-var clientReceipt = ClientReceipt.at("0x1234...ab67" /* address */);
+var DepositOrderReceiver = web3.eth.contract(abi);
+var depositReceipt = DepositOrderReceiver.at("0x1234...ab67" /* address */);
 
 // Pass a callback to start watching immediately
-var event = clientReceipt.Deposit(function(error, result) {
+var event = depositReceipt.Deposit(function(error, result) {
     if (!error)
         console.log(result);
 });
 \end{lstlisting}
 
-In Program \ref{lst:contractEvent}, contract \texttt{ClientDeposit} contains a function \texttt{deposit} which emit event \texttt{Deposit} when successfully executed. The event contains the Ethereum address of the sender, the identifier \texttt{\_id} and the amount of deposit \texttt{value}. After being compiled and deployed to the Ethereum network, an identifier called as \texttt{abi} is generated, which can be used from outside of the Ethereum network to specify the contract. In a webpage which embed the JavaScript program \ref{lst:eventListener},  the \texttt{web3} variable is to denote the web3 web framework, which is used to interact with Ethereum network, which then specify to interact with the contract \texttt{ClientDeposit}. The reference to the event \texttt{Deposit} is stored in \texttt{event} variable and then a callback function is passed into which will be invoked everytime the event is emitted.
+In Program \ref{lst:contractEvent}, contract \texttt{DepositOrderReceiver} contains a function \texttt{deposit} which emit event \texttt{Deposit} when successfully executed. The event contains the Ethereum address of the sender, the identifier \texttt{\_id} and the amount of deposit \texttt{value}. After being compiled and deployed to the Ethereum network, an identifier called as \texttt{abi} is generated, which can be used from outside of the Ethereum network to specify the contract. In a webpage which embed the JavaScript program \ref{lst:eventListener},  the \texttt{web3} variable is to denote the web3 web framework, which is used to interact with Ethereum network, which then specify to interact with the contract \texttt{DepositOrderReceiver}. The reference to the event \texttt{Deposit} is stored in \texttt{event} variable and then a callback function is passed into which will be invoked everytime the event is emitted.
 
 \chapter{Application Design and Requirements}
 \label{ch:ApplicationDesignAndReq}
