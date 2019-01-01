@@ -87,7 +87,7 @@
 \programme{Bachelor’s Degree Programme in Science and Engineering} % Note apostrophes on all fields for PDF metadata
 \keywords{blockchain, smart contract, solidity, ethereum, finance}
 
-\examiner{Professor Marko Helenius} %\and for plural
+\examiner{Marko Helenius} %\and for plural
 \datetopicapproved{2018}{9}{11}% only for master’s theses
 
 
@@ -109,9 +109,9 @@
 \thesisdescription{Bachelor of Science and Engineering Thesis}
 \begin{abstract}
 
-Centralized network solution have been around for a long time, despite having a considerable issue of trust, in which users need to rely on the implementation of the system. During unfortunate incidents such as hacking attacks, users' data can be stolen and distorted, as well as not available while requested. Blockchain is discovered and believed to be a distributed network solution which can mitigate the above issue.
+Centralized network solution have been around for a long time, despite having a considerable issue of trust, in which users need to rely on the implementation of the system. During unfortunate incidents such as centralized server hacking attacks, users' data can be stolen and distorted, as well as not available while requested. Blockchain is discovered and believed to be a distributed network solution which can mitigate the above issue.
 
-This bachelor's thesis studies how blockchain network can be integrated into a social financial mobile application. The research is completed by developing a smart contract and connect it with the mobile application.
+This bachelor's thesis studies how blockchain network can be integrated into a social financial mobile application. The research is completed by developing a smart contract and connect it with the mobile application. The smart contract is written in the Solidity programming language and run on the Ethereum network.
 
  
 \end{abstract}
@@ -146,32 +146,32 @@ Luong Dang Hai
 \begin{tabular}[h]{@{} p{0.2\textwidth-\tabcolsep} p{0.8\textwidth-\tabcolsep} @{}}
 TX & Transaction \\
 ETH & Ether, the currency of the Etherum blockchain \\
+REST & Representational State Transfer \\ 
+API & Application Programming Interface \\
+JSON & Javascript Object Notation \\
+JWT & JSON Web Token \\
 TUT & Tampere University of Technology \\
 URL & Uniform Resource Locator 
 \end{tabular}
 
 \begin{tabular}[h]{@{} p{0.15\textwidth-\tabcolsep} p{0.85\textwidth-\tabcolsep} @{}}
-$a$ & acceleration \\
-$\mathbf{F}$ & force \\
-$m$ & mass
+$\Theta$ & Asymtotic notation Theta \\
 \end{tabular}
 
-The abbreviations and notations used in your thesis are defined collectively at the start of the thesis, and when they appear in the body for the first time.
-Parentheses are used with abbreviations then.
-
+\chapter*{Definitions}
 
 % It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
 
 \chapter{Introduction}
 \label{ch:Introduction}
 
-Developing modern application requires making a client which users will interact, and a server to manage the application's data over the Internet. Such data includes public records, facts, scientific knowledge, personal information and even legal proof. This client and server setup can be found almost at any organization in the planet. Hence, there is a huge trust being placed onto the systems which will be responsible for making sure the data is available and reliable. Most of the time, those systems do not fail everyone's trust, until there are unexpected, either objective or subjective incidents. Such of them can be unauthorized access by a hacking group, or by a corrupted group of people trying to gain their advantages from the data.
+Developing Internet-based applications, which send and receive data over the Internet, requires making a client which users will interact, and a server to manage the application's data. Such data includes public records, facts, scientific knowledge, personal information and even legal proof. Any organizations which need to serve data online are required to set up this client and server system. Hence, there is a huge trust being placed onto the systems which will be responsible for making sure the data is available and reliable. Most of the time, those systems do not fail everyone's trust, until there are unexpected, either objective or subjective incidents, such as unauthorized access by a hacking group, or by a corrupted group of people trying to gain their advantages from the data. Such examples can be found even on Facebook and Google which they failed to protect their customer's data \citep{FacebookLeakData}, \citep{GoogleLeakData}.
 
-Finance is such an important aspect of everyone's life that in today's world there are so many services which was founded in order to serve the ones who need. Those services also rely heavily on the setup stated above, which generates a risk when the trusted system fail to protect customer's data. Countless amount of money from citizens will be lost to the bad people's hands. Therefore, there is a need for a better system that will protect data from the mentioned vulnerability. Luckily, one such solution was discovered which is called "blockchain". Blockchain leverages the power of the majority where everyone can have a chance of governing the data over the Internet, which makes it extremely hard for corrupted minds to execute an attack. Blockchain also embraces the good sides of backing up data since everyone can, and is responsible for keeping one copy of the data.
+Finance has played an important role to the human society since the early ages. After the Internet was invented, finance, among other industries, was given a huge enhancement on how the services can be delivered to customers. Many new companies was founded to provide such financial services such as Paypal \citep{Paypal}, Visa \citep{Visa}, ... Those services also rely heavily on the setup stated above, which generates a risk when the trusted system fail to protect customer's data. Those who can bypass the system's security can compromise a large amount of money from the customer. \citep{IndianBankHack}. Therefore, there is a need for a better system that will protect data from the mentioned issue. Luckily, one such solution was discovered which is called "blockchain". Blockchain leverages the power of the majority where everyone can have a chance of governing the data over the Internet, which makes it extremely hard for corrupted minds to execute an attack. Blockchain also embraces the good sides of backing up data since everyone can, and is responsible for keeping one copy of the data.
 
-The research problem of this thesis is to learn about the concept of blockchain, how it can achieve to solve the above mentioned problems and finally, develop a solution based on blockchain for a social finance mobile application which is called "Blinky", featuring a new way for users to split the cost between friends and handle the payment without directly interact with the payment methods. The objective is to show what is the solution, how the solution can be developed and then integrated to the system of the Blinky application. After that, the solution will be evaluated objectively with key requirements of a financial application.
+By learning about the concept of blockchain, how it can achieve to solve the above mentioned problems, the research problem of this thesis is to develop a solution based on blockchain for a social finance mobile application, featuring a new way for users to split the cost between friends and handle the payment without directly interact with the payment methods. The objective is to show what is the solution, how the solution can be developed and then integrated to the system of the mentioned mobile application. After that, the solution will be evaluated objectively with key requirements of a financial application.
 
-The second chapter presents the brief theoretical definition of blockchain, the advantages of using blockchain, a special feature of it called smart contracts and, then introduces a blockchain network that will be used for later chapters. The third chapter will described the necessary concepts while developing a smart contract, which involves explaining the special features of smart contract's development programming language called Solidity. The forth chapter will describe the current Blinky application system and the requirement needed for the new solution with blockchain. After that, the description about implementing the solution is listed in chapter 5, and then being evaluated in the sixth chapter. The final chapter concludes the results presented in the implementation and evaluation chapter, and then propose the usefulness and possibility to bring the solution to mass-usage.
+Chapter \ref{ch:background} presents the brief theoretical definition of blockchain, the advantages of using blockchain, a special feature of it called smart contracts and, then introduces a blockchain network that will be used to develop and deploy the smart contract to integrate to the mobile application system mentioned in later chapters. Chapter \ref{ch:smartcontractdev} will described the necessary concepts while developing a smart contract, which involves explaining the special features of smart contract's development programming language called Solidity. Chaper \ref{ch:ApplicationDesignAndReq} will describe the current Blinky application system and the requirement needed for the new solution with blockchain. After that, the description about implementing the solution is listed in Chapter \ref{ch:implementation}, and then being evaluated in the Chapter \ref{ch:evaluation}. Chapter \ref{ch:conclusion} concludes the results presented in the implementation and evaluation chapter, and then propose the usefulness and possibility to bring the solution to mass-usage.
 
 
 
