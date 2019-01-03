@@ -160,6 +160,14 @@ $\Theta$ & Asymtotic notation Theta \\
 
 \chapter*{Definitions}
 
+\section*{World computer}
+
+An alternative name for the Ethereum network, denoting its feature to run computer programs in the global scale \citep{EthereumWorldComputer}.
+
+\section*{Programmable Blockchain}
+
+Blockchains which can run smart contracts, developed by one or more programming languages.
+
 % It may be useful to break the chapters into their own files and then do eg. \include{01-introduction} or \include{C-resultsdiscussion}
 
 \chapter{Introduction}
@@ -178,20 +186,20 @@ Chapter \ref{ch:background} presents the brief theoretical definition of blockch
 \chapter{Background}
 \label{ch:background}
 
-This chapter explains the key concepts of a blockchain, a new blockchain feature called smart contract and introduces a platform that provide the capability to develop one which is the Ethereum blockchain. Understanding the key ideas is the prerequisite to understand: i) the revolutional idea of blockchain; ii) the solutions proposed in later chapters.
+This chapter explains the key concepts of a blockchain, a new blockchain feature called smart contract and introduces a platform that provides the capability to develop one which is the Ethereum blockchain. Understanding the key ideas is the prerequisite to understand: i) the revolutional idea of blockchain; ii) the solutions proposed in later chapters.
 
 \section{Blockchain Definitions}
 
 A blockchain is a structure to store data in a continuously growing list of records, which are also referred to as "blocks" \citep{RefWorks:doc:WhatIsBlockChain}. These "blocks" are linked and secured by cryptography.
 
-A blockchain can be compared to a book which can add pages to itself infinitely. Each block is similar to a page, which contains a page number to identify itself. All pages are linked to each other by the book spine, and each page number implies that the next page is certainly the current page number plus one. With this setup, the reader can easily jump to the page as needed, and navigate between pages. A blockchain is constructed in a similar way as that book while the page numbers are replaced by unique identifiers such as a hash value, the book spine is removed and instead each page contains the identifier for the previous page \citep{RefWorks:doc:BlockchainBasicsBook}.
+A blockchain can be compared to a self-organizing book which can add pages to itself infinitely. Each block is similar to a page, which contains a page number to identify itself. All pages are linked to each other by the book spine, and each page number implies that the next page is certainly the current page number plus one. With this setup, the reader can easily jump to the page as needed, and navigate between pages. A blockchain is constructed in a similar way as that book while the page numbers are replaced by unique identifiers such as a hash value, the book spine is removed and instead each page contains the identifier for the previous page \citep{RefWorks:doc:BlockchainBasicsBook}.
 
 \subsection{Content creation on the blockchain}
 \label{contentCreationOnBlockchain}
 
-Content addition to the blockchain is similar to new content addition to a book. For example, anyone can get a digital version of a thesis, write edit and annotate. There has to be a solution to validate which printed out versions of that thesis is the original one. One such solution is comparing all copies of the same book. If the same page is showing different content between versions, the majority which hold the same content will be correct. To the blockchain context, everyone will have the same copy of data and have the right to add new content to it. Each time content is added there will be a broadcast event to everyone, each of whom can verify the data and the majority will decide the next set of data will be added to a new block \citep{RefWorks:doc:BitcoinWhitepaper}.
+Content addition to the blockchain is similar to new content addition to a book. For example, anyone can get a digital version of a thesis, write edit and annotate. There has to be a solution to validate which printed out versions of that thesis is the original one. One such solution is comparing all copies of the same book. If the same page is showing different content between versions, the majority which hold the same content will be correct. To the blockchain context, everyone will have the same copy of data and have the right to add new content to it. Each time content is added there will be a broadcast event to everyone, each of whom can verify the data and after the successful verification, the next set of data will be added to a new block \citep{RefWorks:doc:BitcoinWhitepaper}.
 
-Blockchains improve the content creation by allowing more complex "content" which can be added into itself. These "contents" can be transactions data, messages, texts, conditions and even computer programs, or scripts which run when the conditions are met.
+Blockchains improve the content creation by allowing more complex content which can be added into itself. These contents can be transactions data, messages, texts, conditions and even computer programs, or scripts which run when the conditions are met.
 
 \subsection{Blockchain's capabilities}
 \label{blockchainCapabilities}
@@ -209,24 +217,26 @@ For the purpose of this thesis, finding use cases for a social finance applicati
 
 \subsection{Transparency and democracy}
 
-These capabilities mentioned in section \ref{blockchainCapabilities} can be found in current systems. For example, the records of company shares are saved in that company, legal authority. Those middlemans make sure that all shareholders's stake are recorded correctly. Each time one needs to transfer the shares, all those middlemans need to be notified and then they will then verify and execute the transfer. Those outlined steps might be broken if a chain is corrupted or a human error occured.
+These capabilities mentioned in Sub-Chapter \ref{blockchainCapabilities} can be found in current blockchains. For example, the records of company shares are saved in that company, legal authority. Those middlemans make sure that all shareholders's stakes are recorded correctly. Each time one needs to transfer the shares, all those middlemans need to be notified and then they will verify and execute the transfer. Those outlined steps might be broken if a chain is corrupted or a human error occured.
 
-A blockchain prevents these issues with the reliability of data existence, automatic agreement bindings and no authority in control. All participants in a blockchain will keep a record of that company's shares and share transfer will be handled by a smart contract automatically \citep{RefWorks:doc:BlockchainProtocolInClinicalTrials}. Anyone in the entire world can safely make an agreement to each other without actually meet or know before hand, since the rules and execution of a smart contract are automated.  Each time new data is requested to record, the whole network will verify it with cryptography. Later, the data will be immutable, extremely hard to temper with \citep{RefWorks:doc:BitcoinWhitepaper}\citep{RefWorks:doc:EthereumWhitepaper}. Furthermore, no one owns the system. Instead, it is maintained, verified and controlled by everyone who joins the network.
+A blockchain prevents these issues with the reliability of data existence, automatic agreement bindings and no authority in control. All participants in a blockchain will keep a record of that company's shares and share transfer will be handled by a smart contract automatically \citep{RefWorks:doc:BlockchainProtocolInClinicalTrials}. Anyone with access to the Internet can safely make an agreement to each other without actually meet or know beforehand, since the rules and execution of a smart contract are automated.  Each time new data is requested to record, the whole network will verify it with cryptography. Later, the data will be immutable, extremely hard to temper with \citep{RefWorks:doc:BitcoinWhitepaper}\citep{RefWorks:doc:EthereumWhitepaper}. Furthermore, no one owns the system. Instead, it is maintained, verified and controlled by everyone who joins the network.
 
 \section{Smart contracts}
 
-Smart contracts are new feature of a blockchain \citep{RefWorks:doc:BlockchainInSustainableEnergySystem}, is a "computerized transaction protocol that executes the terms of a
-contract" \citep{SmartContracts}. As mentioned in section \ref{contentCreationOnBlockchain}, any request to run the smart contract codes will be sent with a set of conditions. When the predefined conditions are met, the codes from the smart contract will be executed \citep{RefWorks:doc:MasteringBlockchain}.
+Running smart contracts is a new feature of a blockchain \citep{RefWorks:doc:BlockchainInSustainableEnergySystem}, is a "computerized transaction protocol that executes the terms of a
+contract" \citep{SmartContracts}. As mentioned in Sub-Chapter \ref{contentCreationOnBlockchain}, any request to run the smart contract codes will be sent with a set of conditions. When the predefined conditions are met, the codes from the smart contract will be executed \citep{RefWorks:doc:MasteringBlockchain}.
 
-In a traditional contract, each party will hold a copy. The judges and the legal system will enforce and make sure that the contract terms will be respected and followed. The judges and legal system, in contrast, does not exist in smart contracts. Since they are computer programs, all the rules execution are automated and enforced by computer logic.
+In a traditional contract, each party will hold a copy. The judges and the legal system will enforce and make sure that the contract terms will be respected and followed. The judges and legal system, in contrast, does not exist in smart contracts. Since they are computer programs, all the execution rules are automated and enforced by computer logic.
 
 \subsection{Smart contract innovation}
 
-Since smart contracts are essentially computer programs \citep{Ethdocorg:EVM}, a whole new possibility has been able to be realized since more complex rules and logic can be applied thanks to smart contracts. Running smart contracts on blockchain can also be understood as running computer programs in a "world computer", since the contract will be executed anywhere in the world, which ensures the availability of the contract (zero downtime). Furthermore, since the contract execution will be made by every node joining the network, "an extreme level of fault tolerant" can be achieved \citep{Ethdocorg:EVM}.
+Since smart contracts are essentially computer programs \citep{Ethdocorg:EVM}, a whole new possibility has been able to be realized since more complex rules and logic can be applied thanks to smart contracts. Running smart contracts on blockchain can also be understood as running computer programs in a world computer, since the contract will be executed anywhere in the world, which ensures the availability of the contract (zero downtime). Furthermore, since the contract execution will be made by every node joining the network, "an extreme level of fault tolerant" can be achieved \citep{Ethdocorg:EVM}.
 
-With a smart contract, two random people on the planet, for example Anna and Bob can agree to certain terms and conditions without actually meet and know each other before hand. They do not need to spend time and money from different third party entities to formalize and legalize the contract. Instead, what is required from them is only running the smart contract, and all the rules will be automated without anyone's worry.
+With a smart contract, two people on the blockchain, for example Anna and Bob can agree to certain terms and conditions without actually meet and know each other before hand. They do not need to spend time and money from different third party entities to formalize and legalize the contract. Instead, what is required from them is only running the smart contract, and all the rules will be automated according to the rules defined in the contract itself.
 
 \subsection{Supported Platform and Availability}
+
+Since running smart contracts is a new feature in blockchain, not all blockchain networks have the full support for this feature, including the \textit{bitcoin} network \citep{BitcoinSmartContract}. However, there are 3 most developed blockchain networks that support this new feature: NEO \citep{NEO}, EOS \citep{EOS} and Ethereum \citep{Ethereum}.
 
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|}
@@ -241,13 +251,13 @@ Supported Programming Languages   & \makecell{C\#, VB.Net, \\ F\#Java, Kotlin, P
 \label{table:popularSmartContractPlatform}
 \end{table}
 
-Smart contract is a new an attractive feature that many modern blockchain has implemented it, as shown in Table \ref{table:popularSmartContractPlatform}. EOS blockchain has the largest recent developer commits, however, its maturity is merely 1.5 years comparing to Ethereum's 5 years. That leads to lots of Projects have been built on Ethereum, which confirms its reliability to work with as a smart contract platform. With the mentioned analysis, it is clear that Ethereum will be chosen as the platform for developing a smart contract in this thesis.
+EOS blockchain has the largest recent developer commits, however, its maturity is merely 1.5 years comparing to Ethereum's 5 years. That leads to lots of Projects have been built on Ethereum, which confirms its reliability to work with as a smart contract platform. With the mentioned analysis, it is clear that Ethereum will be chosen as the platform for developing a smart contract in this thesis.
 
 \section{The Ethereum blockchain}
 
-After the successful release of the first blockchain platform called \textit{bitcoin}, the whole world has been introduced and gradually accept the advantages of blockchain technology. However, the problem that \textit{bitcoin} solved was only sending electronic money between peers, and the community demands a next generation of blockchain that can achieve more, for example, running computer programs with consensus-backed security. That was the reason for the born of Ethereum blockchain to become a "programmable blockchain" in the year 2014 \citep{Ethdocorg:WhatIsEthereum}. Ethereum took a different approach to blockchain by allowing everyone to add their own operations and complexity rather than just a money transaction \citep{RefWorks:doc:MasteringBlockchain}. Therefore, Ethereum is suitable to realizing complex business logic \citep{RefWorks:doc:EthereumStateOfKnowledge}.
+After the successful release of the first blockchain platform called \textit{bitcoin}, the financial industry has shown gradual increase in the adoption of blockchain technology \citep{BlockchainGradualAdoption}. However, the problem that \textit{bitcoin} solved was only sending electronic money between peers, and the community demands a next generation of blockchain that can achieve more, for example, running computer programs with consensus-backed security. That was the reason for the born of Ethereum blockchain to become a programmable blockchain in the year 2014 \citep{Ethdocorg:WhatIsEthereum}. Ethereum took a different approach to blockchain by allowing everyone to add their own operations and complexity rather than just a money transaction \citep{RefWorks:doc:MasteringBlockchain}. Therefore, Ethereum is suitable to realizing complex business logic \citep{RefWorks:doc:EthereumStateOfKnowledge}.
 
-The design of Etherum is similar to a state machine \citep{RefWorks:doc:EthereumStateOfKnowledge}\citep{RefWorks:doc:MasteringBlockchain}\citep{RefWorks:doc:EthereumASecureDecentralizedTransaction}. Every time one wants to change the data on Ethereum, a transaction is created. The transactions will be collected and processed incrementally, each of which will describe how the data will transform from the current state to the next one, as in Figure \ref{fig:ethereum_transaction}
+The design of Ethereum is similar to a state machine \citep{RefWorks:doc:EthereumStateOfKnowledge}\citep{RefWorks:doc:MasteringBlockchain}\citep{RefWorks:doc:EthereumASecureDecentralizedTransaction}. Every time one wants to change the data on Ethereum, a transaction is created. The transactions will be collected and processed incrementally, each of which will describe how the data will transform from the current state to the next one, as in Figure \ref{fig:ethereum_transaction}
 
 \begin{figure}
     \centering
@@ -256,11 +266,11 @@ The design of Etherum is similar to a state machine \citep{RefWorks:doc:Ethereum
     \label{fig:ethereum_transaction}
 \end{figure}
 
-There are currently two Ethereum network running: Ethereum Classic (ETC) \citep{EthereumClassic} and Ethereum (ETH) \citep{Ethereum}. In this thesis, the Ethereum ETH will be used to discuss and implement the smart contract due to the speculation that the later Ethereum is more popular, advanced and actively maintained. The currency from Ethereum will be refered as "Ether" after this.
+There are currently two Ethereum networks running: Ethereum Classic (ETC) \citep{EthereumClassic} and Ethereum (ETH) \citep{Ethereum}. In this thesis, the Ethereum ETH will be used to discuss and implement the smart contract due to the speculation that the later Ethereum is more popular, advanced and actively maintained. The currency from Ethereum will be refered as "Ether" after this.
 
 \subsection{Smart contract execution on Ethereum}
 
-In Ethereum, each smart contract has its own address after being released to the network. To run one, an user with another Ethereum address will need to initiate a transaction to the contract, which optionally contains the amount of Ether to transfer, the message to invoke some function on the smart contract, and amount of fee (GAS) to paid for the miners. The transaction will be verified by the network which consumes GAS gradually and if the transaction is invalid, the remaining fee will be refunded to the sender. Otherwise, the amount of Ether specified will be transfer and the code invocation will be activated on the transaction, which will run a specified function on the smart contract.
+In Ethereum, each smart contract has its own address after being released to the network. To run one, an user with another Ethereum address will need to initiate a transaction to the contract, which optionally contains the amount of Ether to transfer, the message to invoke some function on the smart contract, and amount of fee (GAS) to be paid for the miners. The transaction will be verified by the network which consumes GAS gradually and if the transaction is invalid, the remaining fee will be refunded to the sender. Otherwise, the amount of Ether specified will be transfer and the code invocation will be activated on the transaction, which will run a specified function on the smart contract.
 
 \chapter{Smart contract development}
 \label{ch:smartcontractdev}
