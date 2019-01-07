@@ -1,0 +1,110 @@
+\chapter{Smart contract development}
+\label{ch:smartcontractdev}
+
+Smart contracts are simply programs which run on top of a blockchain network. Hence, they can be developed similarly as normal computer programs, by using programming languages to compile the logic of the software, which then after that being compiled to machine instruction in order to execute. In the Ethereum blockchain, Solidity is introduced to be one of the programming languages which have the support to compile smart contract code \citep{SolidityDocumentation}. 
+
+Solidity is a modern language inspired by many predecessors such as C++, Python and JavaScript \citep{SolidityDocumentation}. It is built with the support for Ethereum Virtual Machine (EVM), which is the platform to execute smart contracts, hence becomes a contract-oriented programming language \citep{SolidityDocumentation}. Together with any other modern counterparts, Solidity features inheritance, statically typed and libraries to ease the development process. To understand later code examples shown in later chapters, the language's features which are contracts, function modifiers, addresses will be described in details
+
+\section{Contracts}
+
+Contracts can be known as the soul of Solidity, and a contract's design reassembles to that of classes in other object-oriented programming languages, with the appearance of state variables equivalent to class properties, functions to class methods. For example, Program \ref{lst:simpleContract} shows a basic contract.
+
+\begin{lstlisting}[float,caption={A simple contract in Solidity.},label={lst:simpleContract},language=Solidity]
+pragma solidity ^0.4.0;
+
+contract IntegerStorage {
+    uint storedInt; // This is the state variable
+    
+    function getInt() public returns uint {
+        return storedInt;
+    }
+    
+    function setInt(uint newInt) public {
+        storedInt = newInt
+    }
+}
+\end{lstlisting}
+\label{lst:simpleContract}
+
+Program \ref{lst:simpleContract} shows a contract \texttt{IntegerStorage} which contains a state variable of type \texttt{uint}. This contract also provides two functions, first of which is \texttt{getInt()} which returns the value of the state variable \texttt{storedInt}, and the second is \texttt{setInt(uint newInt)} which receives a parameter of type \texttt{uint} and will set that parameter's value into the state variable
+
+\section{Addresses}
+
+Address is a value type in the Solidity language to denote the Ethereum address, each of which contains a 20-byte value equalling to the size of an Ethereum address \citep{SolidityDocumentation}. The address can be from a real person holding an Ethereum wallet, or another contract, since contracts also own an Ethereum address. This type \texttt{address} includes some members, which is identical to methods and property of an object in other object-oriented programming languages, such as \texttt{balance} and \texttt{transfer}. By having this special value type, it is possible to programmatically send and receive money inside an Ethereum smart contract.
+
+\section{Function modifiers}
+\label{section:functionModifiers}
+
+Functions in Solidity contracts can have modifier to change the behavior of its own \citep{SolidityDocumentation}. With function modifiers, methods can be protected by checking a precondition before executing. Program \ref{lst:simpleFunctionModifier} shows a contract which includes a simple function modifier.
+
+\begin{lstlisting}[float,caption={Simple function modifier in a contract \citep{SolidityDocumentation}.},label={lst:simpleFunctionModifier},language=Solidity,float=h,floatplacement=h]
+pragma solidity ^0.4.0;
+
+contract OwnedWithModifier {
+    function OwnedWithModifier() public { owner = msg.sender; }
+    address owner;
+
+    // This contract defines a modifier and it will
+    // use it in function close()
+    // The function body is inserted where the special symbol
+    // `_;` in the definition of a modifier appears.
+    // This function modifier ensures that only the
+    // owner of this smart contract can execute the close()
+    // function and in other cases, an exception will
+    // be thrown
+    modifier onlyOwner {
+        require(
+            msg.sender == owner,
+            "You need to be the owner to call this function"
+        );
+        _;
+    }
+    
+    // This function can only execute if the owner
+    // is calling it
+    function close() public onlyOwner {
+        // Do something inside this function
+    }
+}
+\end{lstlisting}
+
+In Program \ref{lst:simpleFunctionModifier}, the contract \texttt{owned} is assigned an Ethereum address coming from the caller of the constructor function, which is included in \texttt{msg} variable, as the owner when being created. During the lifetime of the contract, the function \texttt{close()} can only be effectively executed if the caller's address is equal to the owner's address.
+
+\section{Events}
+
+In order to get the best out of smart contracts, there has to be a method to communicate with them from the applications, website, ... Thus, events are designed as a contract feature in Solidity. Each event contains the data denoted from the time which its contract is created. When being called, the transaction's logs will store the event. Program \ref{lst:contractEvent} and \ref{lst:eventListener} demonstrates a simple interaction from a web application with a smart contract.
+
+\begin{lstlisting}[float,caption={Contract with Event derived from \citep{SolidityDocumentation}.},label={lst:contractEvent},language=Solidity]
+pragma solidity ^0.4.0;
+
+contract DepositOrderReceiver {
+    event DepositOrderReceiver(
+        address indexed _from,
+        bytes32 indexed _id,
+        uint _value
+    );
+
+    function deposit(bytes32 _id) public payable {
+        // Events are emitted using `emit`, followed by
+        // the name of the event and the arguments
+        // (if any) in parentheses. Any such invocation
+        // (even deeply nested) can be detected from
+        // the JavaScript API by filtering for `Deposit`.
+        emit Deposit(msg.sender, _id, msg.value);
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[float,caption={Listening to Event from web applications \citep{SolidityDocumentation}.},label={lst:eventListener},language=JavaScript]
+var abi = /* abi as generated by the compiler */;
+var DepositOrderReceiver = web3.eth.contract(abi);
+var depositReceipt = DepositOrderReceiver.at("0x1234...ab67" /* address */);
+
+// Pass a callback to start watching immediately
+var event = depositReceipt.Deposit(function(error, result) {
+    if (!error)
+        console.log(result);
+});
+\end{lstlisting}
+
+In Program \ref{lst:contractEvent}, contract \texttt{DepositOrderReceiver} contains a function \texttt{deposit} which emit event \texttt{Deposit} when successfully executed. The event contains the Ethereum address of the sender, the identifier \texttt{\_id} and the amount of deposit \texttt{value}. After being compiled and deployed to the Ethereum network, an identifier called as \texttt{abi} is generated, which can be used from outside of the Ethereum network to specify the contract. In a webpage which embed the JavaScript program \ref{lst:eventListener},  the \texttt{web3} variable is to denote the web3 web framework, which is used to interact with Ethereum network, which then specify to interact with the contract \texttt{DepositOrderReceiver}. The reference to the event \texttt{Deposit} is stored in \texttt{event} variable and then a callback function is passed into which will be invoked everytime the event is emitted.

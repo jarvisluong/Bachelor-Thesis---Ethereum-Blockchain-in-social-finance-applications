@@ -1,0 +1,19 @@
+\chapter{Conclusion}
+\label{ch:conclusion}
+
+Smart contract can be utilized in social finance application such as the Blinky application which involves in creating and storing event data inside the application. In this work, the Solidity programming language was used to develop a smart contract which acts as a data store for events which happens when user's Cost-Splits incur a new action as mentioned in Sub-Chapter \ref{section:requirements}. The language's documentation is well-written and therefore the smart contract was implemented in a short time interval. Since all the transactions happen inside the Ethereum blockchain and with the necessary security action as mentioned in Sub-Chapter \ref{section:security}, it ensures that the data will maintain its integrity, which will be a basis for a potential legal proof in the future.
+
+By implementing a smart contract and connecting it to the Blinky application, advantages and disadvantages of blockchain can be realized. It is shown that the data state inside the smart contract can be directly requested and appended without going through the Blinky server. This improves the availability and democracy when updating data. Furthermore, it is also shown that the data update to smart contract has to pass the conditions provided in the smart contract's code in order to be accepted. The conditions are verified in every nodes joining the Ethereum network as explained in Sub-Chapter \ref{contentCreationOnBlockchain}. However, as mentioned in Chapter \ref{ch:evaluation}, every transaction or data appending request has to wait for the Ethereum network until it is verified and processed. This is a potential issue that affects user experience since waiting a long time for a small transaction is discouraged. In addition, data on the blockchain does not provide users with privacy (in other words, everyone can request and access data on the blockchain). This also requires users to understand and accept that their data on the blockchain will not be private, unless there are additional encryption methods are applied.
+
+With the advantages and disadvantages of a blockchain-based application, users need to understand what they can take advantage with what drawbacks they have to accept. For some users, this is acceptable. Therefore, it is concluded that this feature of using smart contract in a Blinky's Cost Split should not be used by default. The application should guide user of the feature and its benefits as well as drawbacks.
+
+
+
+%\addto\extrasenglish{\btxifchangecaseoff} % Controls the case-changing for English titles. Make sure that case is preserved for abbreviations and proper nouns, e.g. title={The {ABC} of {Tex}: An Introduction to the Typesetting System}
+
+\ifnameyear
+  \bibliographystyle{babapaliktutnat}
+\else
+  \bibliographystyle{bababbrtut}
+\fi
+\bibliography{references}

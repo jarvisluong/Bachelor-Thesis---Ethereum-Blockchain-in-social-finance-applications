@@ -1,0 +1,17 @@
+\chapter{Smart contract evaluation}
+\label{ch:evaluation}
+
+This chapter will concentrate on evaluating the smart contract's performance with the mentioned requirement in Chapter \ref{section:requirements}. The evaluation consists of security, privacy, latency and troubleshooting.
+
+\section{Security}
+\label{section:security}
+
+Since smart contract is public to the whole blockchain network, there has to be an option to define a rule to execute a function inside a smart contract. Such an option exist in the Solidity language called \textit{function modifier} as mentioned in Section \ref{section:functionModifiers} and a ready-made example in Program \ref{lst:simpleFunctionModifier}. This means the smart contract need to define a modifier that verifies that the function caller is exactly the smart contract owner. To identify who is the owner, the smart contract's constructor need to save the Ethereum address of the caller to one of its own property for later retrieval. This solution provided by Solidity is adequate to protect the smart contract's functions from being called by the unauthorized.
+
+\section{Privacy}
+
+Privacy was not the goal of Ethereum network since every block made in the past can be verified and looked up by the whole network. Therefore, storing the plain data coming from the Blinky application do not provide privacy for user. In order to achieve privacy, the data being sent to smart contract will need to be encrypted. However, a new issue comes up which is who will keep the encryption key. If user is responsible for holding the key, it will require a considerable amount of technical knowledge in order to send and retrieve encrypted data correctly, which will go against the aim of the Blinky application as it tries to provide user the most user-friendly solution. If Blinky application is responsible for holding the encryption key, the aim of decentralized blockchain is also lost since the trust is now given to the Blinky server that it will keep the encryption key secure.
+
+\section{Latency}
+
+The Ethereum network is currently running with the Proof of Work consensus mechanism \citep{RefWorks:doc:BitcoinWhitepaper}, which can only process 15 transactions per second on the whole network, according to the time of writing this thesis. This leads to the unavoided high latency for every time the smart contract is invoked and data is sent. Therefore, interacting with smart contract at this time will not guarantee fast transaction time.
